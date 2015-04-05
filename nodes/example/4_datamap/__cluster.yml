@@ -1,0 +1,28 @@
+__status:
+  fabscript_map:
+    example/datamap/test: {status: 0, task_status: 0}
+  node_map:
+    test01.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}
+    test02.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}
+    test03.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}
+    test04.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}
+    test05.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}
+    test06.host:
+      fabscript_map:
+        example/datamap/test: {check_msg: '', check_status: -1, msg: '', status: 0,
+          task_status: 0}

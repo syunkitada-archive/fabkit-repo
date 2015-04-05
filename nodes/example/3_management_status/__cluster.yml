@@ -1,0 +1,29 @@
+__status:
+  fabscript_map:
+    example/management_status/check_status: {status: 0, task_status: 0}
+    example/management_status/task_status: {status: 0, task_status: 100}
+  node_map:
+    check.danger.mydns.jp:
+      fabscript_map:
+        example/management_status/check_status: {check_msg: success, check_status: 20001,
+          msg: success, status: 0, task_status: 0}
+    check.success.mydns.jp:
+      fabscript_map:
+        example/management_status/check_status: {check_msg: success, check_status: 0,
+          msg: success, status: 0, task_status: 0}
+    check.warning.mydns.jp:
+      fabscript_map:
+        example/management_status/check_status: {check_msg: success, check_status: 201,
+          msg: success, status: 0, task_status: 0}
+    task.danger.mydns.jp:
+      fabscript_map:
+        example/management_status/task_status: {check_msg: failed, check_status: 0,
+          msg: failed, status: 0, task_status: 10001}
+    task.success.mydns.jp:
+      fabscript_map:
+        example/management_status/task_status: {check_msg: success, check_status: 0,
+          msg: success, status: 0, task_status: 0}
+    task.warning.mydns.jp:
+      fabscript_map:
+        example/management_status/task_status: {check_msg: failed, check_status: 0,
+          msg: failed, status: 0, task_status: 101}

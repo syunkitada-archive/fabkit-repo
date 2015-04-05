@@ -1,0 +1,9 @@
+data:
+- {'!!host': test02.host, /dev/sda1: 86, /vagrant: 60, tmpfs: 90}
+- {'!!host': test05.host, /dev/sda1: 31, /vagrant: 7, tmpfs: 14}
+- {'!!host': test03.host, /dev/sda1: 7, /vagrant: 5, tmpfs: 46}
+- {'!!host': test04.host, /dev/sda1: 92, /vagrant: 42, tmpfs: 31}
+- {'!!host': test01.host, /dev/sda1: 68, /vagrant: 42, tmpfs: 91}
+- {'!!host': test06.host, /dev/sda1: 97, /vagrant: 93, tmpfs: 85}
+name: df
+type: table

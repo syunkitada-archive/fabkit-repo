@@ -1,0 +1,5 @@
+node_map:
+  package:
+    hosts:
+      - dev01.vagrant.mydns.jp
+    fabruns: [example/package/common]

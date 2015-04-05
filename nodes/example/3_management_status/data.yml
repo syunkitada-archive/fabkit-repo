@@ -1,0 +1,9 @@
+node_map:
+  setup:
+    hosts:
+      - task.[success+danger+warning].mydns.jp
+    fabruns: [example/management_status/task_status]
+  check:
+    hosts:
+      - check.[success+danger+warning].mydns.jp
+    fabruns: [example/management_status/check_status]

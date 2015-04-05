@@ -1,0 +1,27 @@
+__status:
+  fabscript_map:
+    example/execution_sequence/api: {status: 1, task_status: 0}
+    example/execution_sequence/db: {status: 2, task_status: 0}
+    example/execution_sequence/multi_setup: {status: 0, task_status: 0}
+    example/execution_sequence/web: {status: 1, task_status: 0}
+  node_map:
+    api.mydns.jp:
+      fabscript_map:
+        example/execution_sequence/api: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}
+    db1.mydns.jp:
+      fabscript_map:
+        example/execution_sequence/db: {check_msg: '', check_status: -1, msg: success,
+          status: 2, task_status: 0}
+    db2.mydns.jp:
+      fabscript_map:
+        example/execution_sequence/db: {check_msg: '', check_status: -1, msg: success,
+          status: 2, task_status: 0}
+    multi.mydns.jp:
+      fabscript_map:
+        example/execution_sequence/multi_setup: {check_msg: '', check_status: -1,
+          msg: success, status: 0, task_status: 0}
+    web.mydns.jp:
+      fabscript_map:
+        example/execution_sequence/web: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}

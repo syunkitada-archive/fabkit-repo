@@ -1,0 +1,13 @@
+__status:
+  fabscript_map:
+    example/remote/hello: {status: 0, task_status: 0}
+    test/hello: {status: 0, task_status: 100}
+  node_map:
+    test.mydns.jp:
+      fabscript_map:
+        example/remote/hello: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        test.hello: {check_msg: success check, check_status: 0, msg: success setup,
+          status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}

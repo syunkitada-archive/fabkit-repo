@@ -1,0 +1,8 @@
+__status:
+  fabscript_map:
+    example/remote/hello: {status: 0, task_status: 0}
+  node_map:
+    tokyo01.vagrant.mydns.jp:
+      fabscript_map:
+        example/remote/hello: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}

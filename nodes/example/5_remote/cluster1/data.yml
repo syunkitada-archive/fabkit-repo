@@ -1,0 +1,7 @@
+node_map:
+  dev:
+    hosts:
+      - dev02.vagrant.mydns.jp
+    fabruns: [example/remote/hello]
+remote:
+  host: dev01.vagrant.mydns.jp

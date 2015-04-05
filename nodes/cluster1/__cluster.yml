@@ -1,8 +1,0 @@
-__status:
-  fabscript_map:
-    helloworld/hello: {status: 0, task_status: 0}
-  node_map:
-    localhost:
-      fabscript_map:
-        helloworld/hello: {check_msg: '', check_status: -1, msg: success, status: 0,
-          task_status: 0}

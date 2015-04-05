@@ -1,0 +1,5 @@
+node_map:
+  dev:
+    hosts:
+      - test.mydns.jp
+    fabruns: [example/remote/hello]

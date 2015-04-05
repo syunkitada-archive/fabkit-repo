@@ -1,0 +1,8 @@
+__status:
+  fabscript_map:
+    example/package/common: {status: 0, task_status: 0}
+  node_map:
+    dev01.vagrant.mydns.jp:
+      fabscript_map:
+        example/package/common: {check_msg: success, check_status: 0, msg: success,
+          status: 0, task_status: 0}

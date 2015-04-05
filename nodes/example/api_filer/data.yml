@@ -1,0 +1,6 @@
+node_map:
+  scp:
+    hosts:
+      - dev01.vagrant.mydns.jp
+    fabruns:
+      - example/filer/common

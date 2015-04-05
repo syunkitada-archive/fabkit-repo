@@ -1,6 +1,0 @@
-msg: hello world
-node_map:
-  helloworld:
-    hosts:
-      - localhost
-    fabruns: [helloworld/hello]

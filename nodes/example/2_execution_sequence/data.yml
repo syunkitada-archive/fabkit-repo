@@ -1,0 +1,17 @@
+node_map:
+  multi_setup:
+    hosts:
+      - multi.mydns.jp
+    fabruns: [example/execution_sequence/multi_setup]
+  web:
+    hosts:
+      - web.mydns.jp
+    fabruns: [example/execution_sequence/web]
+  api:
+    hosts:
+      - api.mydns.jp
+    fabruns: [example/execution_sequence/api]
+  db:
+    hosts:
+      - db[1-2].mydns.jp
+    fabruns: [example/execution_sequence/db]

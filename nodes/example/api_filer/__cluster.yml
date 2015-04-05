@@ -1,0 +1,11 @@
+__status:
+  fabscript_map:
+    example/filer/common: {status: 0, task_status: 0}
+    test/filer.scp: {status: 0, task_status: 0}
+  node_map:
+    dev01.vagrant.mydns.jp:
+      fabscript_map:
+        example/filer/common: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        test/filer.scp: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}

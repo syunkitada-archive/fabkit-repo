@@ -1,0 +1,5 @@
+node_map:
+  db:
+    hosts:
+      - test[01-06].host
+    fabruns: [example/datamap/test]

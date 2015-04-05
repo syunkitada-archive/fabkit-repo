@@ -1,0 +1,5 @@
+node_map:
+  hello:
+    hosts:
+      - dev01.vagrant.mydns.jp
+    fabruns: [example/helloworld/hello]

@@ -1,0 +1,17 @@
+__status:
+  fabscript_map:
+    openstack/icehouse/glance: {status: 1, task_status: 0}
+    openstack/icehouse/keystone: {status: 1, task_status: 0}
+    openstack/icehouse/mysql: {status: 1, task_status: 0}
+    openstack/icehouse/rabbitmq: {status: 0, task_status: 0}
+  node_map:
+    dev01.vagrant.mydns.jp:
+      fabscript_map:
+        openstack/icehouse/glance: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}
+        openstack/icehouse/keystone: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}
+        openstack/icehouse/mysql: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}
+        openstack/icehouse/rabbitmq: {check_msg: '', check_status: -1, msg: success,
+          status: 0, task_status: 0}

@@ -1,0 +1,111 @@
+node_map:
+  all_in_one:
+    hosts:
+      - dev01.vagrant.mydns.jp
+    fabruns:
+      # - openstack/icehouse/mysql
+      # - openstack/icehouse/keystone
+      # - openstack/icehouse/glance
+      # - openstack/icehouse/nova
+      - openstack/icehouse/rabbitmq
+
+rabbitmq:
+  host: dev01.vagrant.mydns.jp
+  port: 5672
+  vhosts:
+    openstack: /openstack
+  users:
+    openstack:
+      user: openstack
+      password: openstackpass
+      permissions:
+        - vhost: ${#rabbitmq.vhosts.openstack}
+          permissions: '".*" ".*" ".*"'
+
+mysql:
+  root_password: rootpass
+  users:
+    openstack:
+      password: openstackpass
+      host: localhost
+      privileges: ALL PRIVILEGES
+  databases:
+    keystone: 
+      dbname: keystone
+      host: localhost
+      port: 3306
+      user: openstack
+    nova: 
+      dbname: nova
+      host: localhost
+      port: 3306
+      user: openstack
+    cinder: 
+      dbname: cinder
+      host: localhost
+      port: 3306
+      user: openstack
+    neutron: 
+      dbname: neutron
+      host: localhost
+      port: 3306
+      user: openstack
+    glance: 
+      dbname: glance
+      host: localhost
+      port: 3306
+      user: openstack
+    horizon: 
+      dbname: horizon
+      host: localhost
+      port: 3306
+      user: openstack
+
+keystone:
+  host: dev01.vagrant.mydns.jp
+  admin_user: admin
+  admin_password: adminpass
+  service_tenant_name: service
+  service_user: service
+  service_password: service_password
+  auth_host: dev01.vagrant.mydns.jp
+  auth_port: 35357
+  auth_protocol: http
+  database:
+    connection_name: keystone
+  services:
+    keystone:
+      type: identity
+      description: Openstack Identity Service
+      publicurl: http://${#keystone.host}:5000/v2.0
+      internalurl: http://${#keystone.host}:5000/v2.0
+      adminurl: http://${#keystone.host}:35357/v2.0
+    glance:
+      type: image
+      description: Openstack Image Service
+      publicurl: http://${#glance.host}:9292
+      internalurl: http://${#glance.host}:9292
+      adminurl: http://${#glance.host}:9292
+    nova:
+      type: compute
+      description: Openstack Compute Service
+      publicurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+      internalurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+      adminurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+    neutron:
+      type: network
+      description: Openstack Networking Service
+      publicurl: http://${#neutron.host}:9696
+      internalurl: http://${#neutron.host}:9696
+      adminurl: http://${#neutron.host}:9696
+
+glance:
+  host: dev01.vagrant.mydns.jp
+  database:
+    connection_name: glance
+
+nova:
+  host: dev01.vagrant.mydns.jp
+
+neutron:
+  host: dev01.vagrant.mydns.jp

@@ -1,0 +1,87 @@
+keystone:
+  host: dev01.vagrant.mydns.jp
+  admin_user: admin
+  admin_password: adminpass
+  service_tenant_name: service
+  service_user: service
+  service_password: service_password
+  auth_host: dev01.vagrant.mydns.jp
+  auth_port: 35357
+  auth_protocol: http
+  database:
+    connection_name: keystone
+  services:
+    keystone:
+      type: identity
+      description: Openstack Identity Service
+      publicurl: http://${#keystone.host}:5000/v2.0
+      internalurl: http://${#keystone.host}:5000/v2.0
+      adminurl: http://${#keystone.host}:35357/v2.0
+    glance:
+      type: image
+      description: Openstack Image Service
+      publicurl: http://${#glance.host}:9292
+      internalurl: http://${#glance.host}:9292
+      adminurl: http://${#glance.host}:9292
+    nova:
+      type: compute
+      description: Openstack Compute Service
+      publicurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+      internalurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+      adminurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
+    neutron:
+      type: network
+      description: Openstack Networking Service
+      publicurl: http://${#neutron.host}:9696
+      internalurl: http://${#neutron.host}:9696
+      adminurl: http://${#neutron.host}:9696
+
+glance:
+  host: dev01.vagrant.mydns.jp
+  database:
+    connection_name: glance
+
+nova:
+  host: dev01.vagrant.mydns.jp
+  database:
+    connection_name: nova
+  rpc_backend: rabbit
+  rabbit_host: ${#rabbitmq.host}
+  rabbit_port: ${#rabbitmq.port}
+  rabbit_userid: ${#rabbitmq.users.openstack.user}
+  rabbit_password: ${#rabbitmq.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  auth_strategy: keystone
+  network_api_class: nova.network.neutronv2.api.API
+  neutron_url: ${#neutron.host}
+  linuxnet_interface_driver: nova.network.linux_net.LinuxOVSInterfaceDriver
+  firewall_driver: nova.virt.firewall.NoopFirewallDriver
+  security_group_api: neutron
+  glance_host: ${#glance.host}
+  compute_driver: libvirt.LibvirtDriver
+  service_neutron_metadata_proxy: true
+  neutron_metadata_proxy_shared_secret: METADATA_SECRET
+  libvirt:
+    virt_type: qemu
+
+neutron:
+  host: dev01.vagrant.mydns.jp
+  database:
+    connection_name: neutron
+  rabbit_host: ${#rabbitmq.host}
+  rabbit_port: ${#rabbitmq.port}
+  rabbit_userid: ${#rabbitmq.users.openstack.user}
+  rabbit_password: ${#rabbitmq.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  auth_strategy: keystone
+  lock_path: /var/lock/subsys/neutron
+  nova_url: http://dev02.vagrant.mydns.jp:8774/v2/
+  ml2:
+    type_drivers: flat
+    tenant_network_types: flat
+    mechanism_drivers: linuxbridge
+
+horizon:
+  host: dev01.vagrant.mydns.jp
+  database:
+    connection_name: horizon

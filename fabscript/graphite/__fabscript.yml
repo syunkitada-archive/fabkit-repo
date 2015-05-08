@@ -1,0 +1,12 @@
+mysql:
+  status_flow: [1]
+
+relay:
+  status_flow: [1]
+  require:
+    graphite/mysql: 1
+
+cache:
+  status_flow: [1]
+  require:
+    graphite/mysql: 1

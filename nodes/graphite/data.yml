@@ -1,0 +1,75 @@
+node_map:
+  relay:
+    hosts:
+      - dev01.vagrant.mydns.jp
+    fabruns:
+      - graphite/mysql
+      - graphite/relay
+  cache:
+    hosts:
+      - dev02.vagrant.mydns.jp
+    fabruns: [graphite/cache]
+
+mysql:
+  host: ${#carbon.relay.host}
+  root_password: ${graphite/mysql.root_password}
+  users:
+    - user: ${graphite/mysql.user}
+      password: ${graphite/mysql.password}
+      client_host: 192.168.11.%
+      privileges: 'ALL PRIVILEGES'
+      table: '*.*'
+  databases:
+    - graphite
+  server_conf:
+    port: 3306
+
+graphite_web:
+  database:
+    host: ${#mysql.host}
+    port: ${#mysql.server_conf.port}
+    user: ${#mysql.users.0.user}
+    password: ${#mysql.users.0.password}
+    dbname: ${#mysql.databases.0}
+  standard_dirs:
+    - CERES_DIR
+  cluster_servers:
+    - ${#carbon.relay.host}
+    - ${#carbon.cache.host}
+  carbonlink_hosts:
+    - ${#carbon.cache.host}:7002:a
+    - ${#carbon.cache.host}:7102:b
+
+carbon:
+  relay:
+    host: 192.168.11.100
+    daemons:
+      relay0:
+        database: ceres
+        cache_query_port: 7002
+        relay_method: consistent-hashing
+        destinations: '${#carbon.cache.receivers}'
+        listeners:
+          - port: 2003
+            type: plaintext-receiver
+          - port: 2004
+            type: pickle-receiver
+
+  cache:
+    host: 192.168.11.101
+    receivers:
+      - ${#carbon.cache.host}:2003:cache0
+      - ${#carbon.cache.host}:2103:cache1
+    daemons:
+      cache0:
+        database: ceres
+        cache_query_port: 7002
+        listeners:
+          - port: 2003
+            type: pickle-receiver
+      cache1:
+        database: ceres
+        cache_query_port: 7102
+        listeners:
+          - port: 2103
+            type: pickle-receiver

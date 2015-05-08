@@ -9,3 +9,5 @@ rabbitmq = RabbitMQ()
 @task
 def setup():
     rabbitmq.setup()
+
+    return {'status': 1}

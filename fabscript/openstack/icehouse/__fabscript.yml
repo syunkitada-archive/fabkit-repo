@@ -34,3 +34,8 @@ horizon:
   require:
     openstack/icehouse/keystone: 1
     openstack/icehouse/mysql: 1
+
+compute:
+  status_flow: [1]
+  require:
+    openstack/icehouse/rabbitmq: 1

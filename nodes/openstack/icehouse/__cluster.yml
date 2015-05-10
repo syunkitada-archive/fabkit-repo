@@ -1,5 +1,6 @@
 __status:
   fabscript_map:
+    openstack/icehouse/compute: {status: 1, task_status: 0}
     openstack/icehouse/glance: {status: 1, task_status: 0}
     openstack/icehouse/horizon: {status: 1, task_status: 0}
     openstack/icehouse/keystone: {status: 1, task_status: 0}
@@ -7,9 +8,12 @@ __status:
     openstack/icehouse/neutron: {status: 1, task_status: 0}
     openstack/icehouse/nova: {status: 1, task_status: 0}
     openstack/icehouse/rabbitmq: {status: 1, task_status: 0}
+    openstack/icehouse/test: {status: 0, task_status: 0}
   node_map:
     dev01.vagrant.mydns.jp:
       fabscript_map:
+        openstack/icehouse/compute: {check_msg: '', check_status: -1, msg: success,
+          status: 1, task_status: 0}
         openstack/icehouse/glance: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
         openstack/icehouse/horizon: {check_msg: '', check_status: -1, msg: success,
@@ -24,3 +28,5 @@ __status:
           task_status: 0}
         openstack/icehouse/rabbitmq: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
+        openstack/icehouse/test: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}

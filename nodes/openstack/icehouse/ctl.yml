@@ -45,16 +45,18 @@ nova:
   host: dev01.vagrant.mydns.jp
   database:
     connection_name: nova
+  state_path: /var/lib/nova
   rpc_backend: rabbit
   rabbit_host: ${#rabbitmq.host}
   rabbit_port: ${#rabbitmq.port}
   rabbit_userid: ${#rabbitmq.users.openstack.user}
   rabbit_password: ${#rabbitmq.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  novncproxy_base_url: http://dev01.vagrant.mydns.jp:6080/vnc_auto.html
   auth_strategy: keystone
   network_api_class: nova.network.neutronv2.api.API
-  neutron_url: ${#neutron.host}
-  linuxnet_interface_driver: nova.network.linux_net.LinuxOVSInterfaceDriver
+  neutron_url: http://dev01.vagrant.mydns.jp:9696
+  linuxnet_interface_driver: nova.network.linux_net.LinuxBridgeInterfaceDriver
   firewall_driver: nova.virt.firewall.NoopFirewallDriver
   security_group_api: neutron
   glance_host: ${#glance.host}
@@ -75,11 +77,19 @@ neutron:
   rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
   auth_strategy: keystone
   lock_path: /var/lock/subsys/neutron
-  nova_url: http://dev02.vagrant.mydns.jp:8774/v2/
+  nova_url: http://dev01.vagrant.mydns.jp:8774/v2/
   ml2:
     type_drivers: flat
     tenant_network_types: flat
     mechanism_drivers: linuxbridge
+    flat_networks:
+      - physnet1
+  linuxbridge:
+    tenant_network_type: flat
+    network_vlan_ranges:
+      - physnet1
+    physical_interface_mappings:
+      - physnet1:eth1
 
 horizon:
   host: dev01.vagrant.mydns.jp

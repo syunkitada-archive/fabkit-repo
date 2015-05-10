@@ -11,3 +11,8 @@ def setup():
     glance.setup()
 
     return {'status': 1}
+
+
+@task
+def register_images():
+    glance.register_images()

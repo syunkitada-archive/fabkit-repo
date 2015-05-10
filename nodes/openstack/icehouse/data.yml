@@ -3,15 +3,15 @@ node_map:
     hosts:
       - dev01.vagrant.mydns.jp
     fabruns:
-      # - openstack/icehouse/mysql
-      # - openstack/icehouse/rabbitmq
-      # - openstack/icehouse/keystone
-      # - openstack/icehouse/glance
+      - openstack/icehouse/mysql
+      - openstack/icehouse/rabbitmq
+      - openstack/icehouse/keystone
+      - openstack/icehouse/glance
       - openstack/icehouse/nova
-      # - openstack/icehouse/neutron
-      # - openstack/icehouse/horizon
-      # - openstack/icehouse/compute
-      # - openstack/icehouse/test
+      - openstack/icehouse/neutron
+      - openstack/icehouse/horizon
+      - openstack/icehouse/compute
+      - openstack/icehouse/test
 
 rabbitmq:
   host: dev01.vagrant.mydns.jp

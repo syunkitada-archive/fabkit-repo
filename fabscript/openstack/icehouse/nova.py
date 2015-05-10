@@ -11,3 +11,13 @@ def setup():
     nova.setup()
 
     return {'status': 1}
+
+
+@task
+def enable_services():
+    nova.enable_services()
+
+
+@task
+def sync_flavors():
+    nova.sync_flavors()

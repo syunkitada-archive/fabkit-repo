@@ -58,6 +58,8 @@ nova:
   rabbit_userid: ${#rabbitmq.users.openstack.user}
   rabbit_password: ${#rabbitmq.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  reserved_host_disk_mb: 64
+  reserved_host_memory_mb: 32
   novncproxy_base_url: http://dev01.vagrant.mydns.jp:6080/vnc_auto.html
   auth_strategy: keystone
   network_api_class: nova.network.neutronv2.api.API

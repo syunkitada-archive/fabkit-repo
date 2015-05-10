@@ -15,7 +15,7 @@ def setup():
 
 @task
 def enable_services():
-    nova.enable_services()
+    nova.enable_nova_services()
 
 
 @task

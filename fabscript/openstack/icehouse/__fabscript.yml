@@ -39,3 +39,5 @@ compute:
   status_flow: [1]
   require:
     openstack/icehouse/rabbitmq: 1
+    openstack/icehouse/nova: 1
+    openstack/icehouse/neutron: 1

@@ -3,15 +3,15 @@ node_map:
     hosts:
       - dev01.vagrant.mydns.jp
     fabruns:
-      # - openstack/juno/mysql
-      # - openstack/juno/rabbitmq
-      # - openstack/juno/keystone
-      # - openstack/juno/glance
+      - openstack/juno/mysql
+      - openstack/juno/rabbitmq
+      - openstack/juno/keystone
+      - openstack/juno/glance
       - openstack/juno/nova
-      # - openstack/juno/neutron
-      # - openstack/juno/horizon
-      # - openstack/juno/compute
-      # - openstack/juno/test
+      - openstack/juno/neutron
+      - openstack/juno/horizon
+      - openstack/juno/compute
+      - openstack/juno/test
 
 rabbitmq:
   host: dev01.vagrant.mydns.jp

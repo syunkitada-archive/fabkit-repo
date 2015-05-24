@@ -1,0 +1,14 @@
+__status:
+  fabscript_map:
+    openstack/kilo/keystone: {status: 1, task_status: 0}
+    openstack/kilo/mysql: {status: 1, task_status: 0}
+    openstack/kilo/rabbitmq: {status: 1, task_status: 0}
+  node_map:
+    dev01.vagrant.mydns.jp:
+      fabscript_map:
+        openstack/kilo/keystone: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        openstack/kilo/mysql: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        openstack/kilo/rabbitmq: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}

@@ -1,0 +1,7 @@
+env:
+  port: 10022
+node_map:
+  qemu:
+    hosts:
+      - hv.qemu.mydns.jp
+    fabruns: [test/hello]

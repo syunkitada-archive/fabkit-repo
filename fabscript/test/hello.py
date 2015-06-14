@@ -3,6 +3,7 @@
 from fabkit import task, run
 
 
-@task
+@task(is_bootstrap=False)
 def setup():
-    run('touch /tmp/test')
+    print 'TEST'
+    # run('touch /tmp/test')

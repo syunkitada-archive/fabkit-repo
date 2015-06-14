@@ -2,4 +2,5 @@
 /storage/
 /fablib/
 *.pyc
+*.pickle
 /fabkit.wsgi

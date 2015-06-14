@@ -3,8 +3,8 @@ node_map:
     hosts:
       - dev01.vagrant.mydns.jp
     fabruns:
-      - openstack/icehouse/mysql
-      - openstack/icehouse/rabbitmq
+      # - openstack/icehouse/mysql
+      # - openstack/icehouse/rabbitmq
       - openstack/icehouse/keystone
       - openstack/icehouse/glance
       - openstack/icehouse/nova

@@ -3,5 +3,13 @@ env:
 node_map:
   qemu:
     hosts:
-      - hv.qemu.mydns.jp
+      - hv[1-10].qemu.mydns.jp
+    fabruns: [test/hello]
+  qemu2:
+    hosts:
+      - ${!-./scripts/test.sh}
+    fabruns: [test/hello]
+  qemu3:
+    hosts:
+      - qemu[1-10].qemu
     fabruns: [test/hello]

@@ -2,7 +2,7 @@ __status:
   fabscript_map:
     openstack/icehouse/compute: {status: 1, task_status: 0}
     openstack/icehouse/glance: {status: 1, task_status: 0}
-    openstack/icehouse/horizon: {status: 1, task_status: 0}
+    openstack/icehouse/horizon: {status: 0, task_status: 100}
     openstack/icehouse/keystone: {status: 1, task_status: 0}
     openstack/icehouse/mysql: {status: 1, task_status: 0}
     openstack/icehouse/neutron: {status: 1, task_status: 0}
@@ -14,10 +14,10 @@ __status:
       fabscript_map:
         openstack/icehouse/compute: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
-        openstack/icehouse/glance: {check_msg: '', check_status: -1, msg: registered,
+        openstack/icehouse/glance: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
-        openstack/icehouse/horizon: {check_msg: '', check_status: -1, msg: success,
-          status: 1, task_status: 0}
+        openstack/icehouse/horizon: {check_msg: '', check_status: -1, msg: registered,
+          status: 0, task_status: 100}
         openstack/icehouse/keystone: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
         openstack/icehouse/mysql: {check_msg: '', check_status: -1, msg: success,
@@ -29,4 +29,4 @@ __status:
         openstack/icehouse/rabbitmq: {check_msg: '', check_status: -1, msg: success,
           status: 1, task_status: 0}
         openstack/icehouse/test: {check_msg: '', check_status: -1, msg: registered,
-          status: 0, task_status: 0}
+          status: 0, task_status: 100}

@@ -1,14 +1,29 @@
 __status:
   fabscript_map:
+    openstack/kilo/compute: {status: 1, task_status: 0}
+    openstack/kilo/glance: {status: 1, task_status: 0}
     openstack/kilo/keystone: {status: 1, task_status: 0}
     openstack/kilo/mysql: {status: 1, task_status: 0}
+    openstack/kilo/neutron: {status: 1, task_status: 0}
+    openstack/kilo/nova: {status: 1, task_status: 0}
     openstack/kilo/rabbitmq: {status: 1, task_status: 0}
+    openstack/kilo/test: {status: 0, task_status: 0}
   node_map:
     dev01.vagrant.mydns.jp:
       fabscript_map:
+        openstack/kilo/compute: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        openstack/kilo/glance: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/kilo/keystone: {check_msg: '', check_status: -1, msg: success, status: 1,
           task_status: 0}
         openstack/kilo/mysql: {check_msg: '', check_status: -1, msg: success, status: 1,
           task_status: 0}
+        openstack/kilo/neutron: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        openstack/kilo/nova: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/kilo/rabbitmq: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        openstack/kilo/test: {check_msg: '', check_status: -1, msg: registered, status: 0,
           task_status: 0}

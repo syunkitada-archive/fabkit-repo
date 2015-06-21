@@ -4,7 +4,7 @@ node_map:
   qemu:
     hosts:
       - hv[1-10].qemu.mydns.jp
-    fabruns: [test/hello]
+    fabruns: [test/hello, test/hello2]
   qemu2:
     hosts:
       - ${!-./scripts/test.sh}

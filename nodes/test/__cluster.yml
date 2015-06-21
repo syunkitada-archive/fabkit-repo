@@ -1,34 +1,81 @@
 __status:
   fabscript_map:
     test/hello: {status: 0, task_status: 0}
+    test/hello2: {status: 0, task_status: 0}
   node_map:
     hv01.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv02.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv03.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv04.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv05.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv06.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv07.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv08.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv09.qemu.mydns.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
     hv10.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu01.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu02.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu03.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu04.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu05.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu06.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu07.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu08.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu09.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    qemu10.qemu:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    test.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    test2.jp:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

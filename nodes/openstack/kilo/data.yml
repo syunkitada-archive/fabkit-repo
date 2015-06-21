@@ -5,13 +5,13 @@ node_map:
     fabruns:
       # - openstack/kilo/mysql
       # - openstack/kilo/rabbitmq
-      - openstack/kilo/keystone
+      # - openstack/kilo/keystone
       # - openstack/kilo/glance
       # - openstack/kilo/nova
-      # - openstack/kilo/neutron
+      - openstack/kilo/neutron
       # - openstack/kilo/horizon
-      # - openstack/kilo/compute
-      # - openstack/kilo/test
+      - openstack/kilo/compute
+      - openstack/kilo/test
 
 rabbitmq:
   host: dev01.vagrant.mydns.jp

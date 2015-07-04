@@ -3,11 +3,11 @@ node_map:
     hosts:
       - dev01.vagrant.mydns.jp
     fabruns:
-      # - openstack/kilo/mysql
-      # - openstack/kilo/rabbitmq
-      # - openstack/kilo/keystone
-      # - openstack/kilo/glance
-      # - openstack/kilo/nova
+      - openstack/kilo/mysql
+      - openstack/kilo/rabbitmq
+      - openstack/kilo/keystone
+      - openstack/kilo/glance
+      - openstack/kilo/nova
       - openstack/kilo/neutron
       # - openstack/kilo/horizon
       - openstack/kilo/compute

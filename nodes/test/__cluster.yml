@@ -1,48 +1,68 @@
 __status:
   fabscript_map:
-    test/hello: {status: 0, task_status: 0}
-    test/hello2: {status: 0, task_status: 0}
+    test/hello: {status: 0, task_status: 100}
+    test/hello2: {status: 0, task_status: 100}
   node_map:
     hv01.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv02.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv03.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv04.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv05.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv06.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv07.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv08.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv09.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     hv10.qemu.mydns.jp:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
-        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
     qemu01.qemu:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

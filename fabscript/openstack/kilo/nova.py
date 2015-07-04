@@ -14,6 +14,11 @@ def setup():
 
 
 @task
+def restart():
+    nova.restart_services()
+
+
+@task
 def enable_services():
     nova.enable_nova_services()
 

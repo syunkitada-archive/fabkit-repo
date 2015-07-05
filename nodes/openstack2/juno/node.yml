@@ -1,0 +1,65 @@
+node_map:
+  all_in_one:
+    hosts:
+      - 192.168.122.43
+    fabruns:
+      - openstack/juno/mysql
+      - openstack/juno/rabbitmq
+      - openstack/juno/keystone
+      - openstack/juno/glance
+      - openstack/juno/nova
+      - openstack/juno/neutron
+      - openstack/juno/horizon
+      - openstack/juno/compute
+      - openstack/juno/test
+
+rabbitmq:
+  host: 192.168.122.43
+  port: 5672
+  vhosts:
+    openstack: /openstack
+  users:
+    openstack:
+      user: openstack
+      password: openstackpass
+      permissions:
+        - vhost: ${#rabbitmq.vhosts.openstack}
+          permissions: '".*" ".*" ".*"'
+
+mysql:
+  users:
+    openstack:
+      password: openstackpass
+      host: localhost
+      privileges: ALL PRIVILEGES
+  databases:
+    keystone: 
+      dbname: keystone
+      host: localhost
+      port: 3306
+      user: openstack
+    nova: 
+      dbname: nova
+      host: localhost
+      port: 3306
+      user: openstack
+    cinder: 
+      dbname: cinder
+      host: localhost
+      port: 3306
+      user: openstack
+    neutron: 
+      dbname: neutron
+      host: localhost
+      port: 3306
+      user: openstack
+    glance: 
+      dbname: glance
+      host: localhost
+      port: 3306
+      user: openstack
+    horizon: 
+      dbname: horizon
+      host: localhost
+      port: 3306
+      user: openstack

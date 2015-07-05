@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from fabkit import task
-from fablib.openstack.juno import Keystone
+from fablib.openstack import Keystone
 
 keystone = Keystone()
 

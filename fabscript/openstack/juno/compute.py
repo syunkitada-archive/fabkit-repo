@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from fabkit import task
-from fablib.openstack.juno import Nova, Neutron, nova, neutron
+from fablib.openstack import Nova, Neutron, nova, neutron
 
 nova = Nova(mode=nova.MODE_COMPUTE)
 neutron = Neutron(mode=neutron.MODE_COMPUTE)

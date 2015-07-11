@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from fabkit import task
-from fablib.openstack.juno import Horizon
+from fablib.openstack import Horizon
 
 horizon = Horizon()
 

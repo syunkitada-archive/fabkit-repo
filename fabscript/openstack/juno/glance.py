@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from fabkit import task
-from fablib.openstack.juno import Glance
+from fablib.openstack import Glance
 
 glance = Glance()
 

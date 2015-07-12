@@ -110,7 +110,7 @@ neutron:
     network_vlan_ranges:
       - physnet1
     physical_interface_mappings:
-      - physnet1:eth1
+      - physnet1:eth0
   networks:
     test_net:
       options:

@@ -1,23 +1,23 @@
 __status:
   fabscript_map:
-    openstack/juno/compute: {status: 1, task_status: 100}
-    openstack/juno/glance: {status: 1, task_status: 100}
-    openstack/juno/horizon: {status: 0, task_status: 100}
-    openstack/juno/keystone: {status: 1, task_status: 100}
-    openstack/juno/mysql: {status: 1, task_status: 100}
-    openstack/juno/neutron: {status: 1, task_status: 100}
-    openstack/juno/nova: {status: 1, task_status: 100}
+    openstack/juno/compute: {status: 1, task_status: 0}
+    openstack/juno/glance: {status: 1, task_status: 0}
+    openstack/juno/horizon: {status: 1, task_status: 0}
+    openstack/juno/keystone: {status: 1, task_status: 0}
+    openstack/juno/mysql: {status: 1, task_status: 0}
+    openstack/juno/neutron: {status: 1, task_status: 0}
+    openstack/juno/nova: {status: 1, task_status: 0}
     openstack/juno/rabbitmq: {status: 1, task_status: 0}
     openstack/juno/test: {status: 0, task_status: 0}
   node_map:
     192.168.122.43:
       fabscript_map:
-        openstack/juno/compute: {check_msg: '', check_status: -1, msg: registered,
-          status: 1, task_status: 100}
+        openstack/juno/compute: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/juno/glance: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
         openstack/juno/horizon: {check_msg: '', check_status: -1, msg: registered,
-          status: 0, task_status: 100}
+          status: 1, task_status: 100}
         openstack/juno/keystone: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
         openstack/juno/mysql: {check_msg: '', check_status: -1, msg: registered, status: 1,
@@ -26,7 +26,7 @@ __status:
           status: 1, task_status: 100}
         openstack/juno/nova: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/juno/rabbitmq: {check_msg: '', check_status: -1, msg: success, status: 1,
-          task_status: 0}
+        openstack/juno/rabbitmq: {check_msg: '', check_status: -1, msg: registered,
+          status: 1, task_status: 100}
         openstack/juno/test: {check_msg: '', check_status: -1, msg: registered, status: 0,
-          task_status: 100}
+          task_status: 0}

@@ -1,0 +1,8 @@
+__status:
+  fabscript_map:
+    test/ubuntu: {status: 0, task_status: 100}
+  node_map:
+    192.168.122.143:
+      fabscript_map:
+        test/ubuntu: {check_msg: '', check_status: -1, msg: Failed check ping., status: 0,
+          task_status: 404}

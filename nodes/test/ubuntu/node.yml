@@ -1,0 +1,6 @@
+node_map:
+  ubuntu:
+    hosts:
+      - 192.168.122.143
+    fabruns: [test/ubuntu]
+

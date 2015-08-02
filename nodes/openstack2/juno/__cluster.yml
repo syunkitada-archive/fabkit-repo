@@ -12,10 +12,10 @@ __status:
   node_map:
     192.168.122.43:
       fabscript_map:
-        openstack/juno/compute: {check_msg: '', check_status: -1, msg: success, status: 1,
-          task_status: 0}
-        openstack/juno/glance: {check_msg: '', check_status: -1, msg: registered,
+        openstack/juno/compute: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
+        openstack/juno/glance: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/juno/horizon: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
         openstack/juno/keystone: {check_msg: '', check_status: -1, msg: registered,
@@ -25,7 +25,7 @@ __status:
         openstack/juno/neutron: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
         openstack/juno/nova: {check_msg: '', check_status: -1, msg: registered, status: 1,
-          task_status: 100}
+          task_status: 0}
         openstack/juno/rabbitmq: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
         openstack/juno/test: {check_msg: '', check_status: -1, msg: registered, status: 0,

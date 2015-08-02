@@ -1,0 +1,43 @@
+mysql:
+  status_flow: [1]
+
+rabbitmq:
+  status_flow: [1]
+
+keystone:
+  status_flow: [1]
+  require:
+    openstack/mysql: 1
+
+glance:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+
+nova:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+    openstack/rabbitmq: 1
+
+neutron:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+    openstack/rabbitmq: 1
+
+horizon:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+
+compute:
+  status_flow: [1]
+  require:
+    openstack/rabbitmq: 1
+    openstack/nova: 1
+    openstack/neutron: 1

@@ -11,3 +11,8 @@ def setup():
     rabbitmq.setup()
 
     return {'status': 1}
+
+
+@task
+def restart():
+    rabbitmq.restart_services()

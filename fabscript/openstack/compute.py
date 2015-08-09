@@ -13,3 +13,9 @@ def setup():
     neutron.setup()
 
     return {'status': 1}
+
+
+@task
+def restart():
+    nova.restart_services()
+    neutron.restart_services()

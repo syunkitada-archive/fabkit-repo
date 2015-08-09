@@ -16,3 +16,8 @@ def setup():
 @task
 def register_images():
     glance.register_images()
+
+
+@task
+def restart():
+    glance.restart_services()

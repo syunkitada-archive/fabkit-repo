@@ -2,7 +2,7 @@
 
 import datetime
 from fabkit import task
-from fablib.openstack.juno import Nova
+from fablib.openstack import Nova
 
 nova = Nova()
 

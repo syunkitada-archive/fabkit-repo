@@ -10,3 +10,8 @@ mysql = MySQL()
 def setup():
     mysql.setup()
     return {'status': 1}
+
+
+@task
+def restart():
+    mysql.restart_services()

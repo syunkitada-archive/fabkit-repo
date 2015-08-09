@@ -12,3 +12,8 @@ def setup():
     keystone.dump_openstackrc()
 
     return {'status': 1}
+
+
+@task
+def restart():
+    keystone.restart_services()

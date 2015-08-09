@@ -21,3 +21,8 @@ def enable_services():
 @task
 def sync_flavors():
     nova.sync_flavors()
+
+
+@task
+def restart():
+    nova.restart_services()

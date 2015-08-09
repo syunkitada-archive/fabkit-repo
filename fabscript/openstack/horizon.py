@@ -11,3 +11,8 @@ def setup():
     horizon.setup()
 
     return {'status': 1}
+
+
+@task
+def restart():
+    horizon.restart_services()

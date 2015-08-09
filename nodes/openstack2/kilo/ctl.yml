@@ -5,6 +5,7 @@ keystone:
   admin_user: admin
   admin_password: adminpass
   service_tenant_name: service
+  service_region: RegionOne
   service_user: service
   service_password: service_password
   auth_host: 192.168.122.43
@@ -16,24 +17,28 @@ keystone:
   services:
     keystone:
       type: identity
+      region: RegionOne
       description: Openstack Identity Service
       publicurl: http://${#keystone.host}:5000/v2.0
       internalurl: http://${#keystone.host}:5000/v2.0
       adminurl: http://${#keystone.host}:35357/v2.0
     glance:
       type: image
+      region: RegionOne
       description: Openstack Image Service
       publicurl: http://${#glance.host}:9292
       internalurl: http://${#glance.host}:9292
       adminurl: http://${#glance.host}:9292
     nova:
       type: compute
+      region: RegionOne
       description: Openstack Compute Service
       publicurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
       internalurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
       adminurl: http://${#nova.host}:8774/v2/%\(tenant_id\)s
     neutron:
       type: network
+      region: RegionOne
       description: Openstack Networking Service
       publicurl: http://${#neutron.host}:9696
       internalurl: http://${#neutron.host}:9696
@@ -73,7 +78,7 @@ nova:
   neutron_url: http://192.168.122.43:9696
   linuxnet_interface_driver: nova.network.linux_net.LinuxBridgeInterfaceDriver
   firewall_driver: nova.virt.firewall.NoopFirewallDriver
-  security_group_api: neutron
+  security_group_api: nova
   glance_host: ${#glance.host}
   compute_driver: libvirt.LibvirtDriver
   service_neutron_metadata_proxy: true
@@ -131,5 +136,8 @@ horizon:
   version: kilo
   branch: stable/kilo
   host: 192.168.122.43
+  time_zone: Asia/Tokyo
+  debug: True
+  template_debug: True
   database:
     connection_name: horizon

@@ -1,0 +1,19 @@
+__status:
+  fabscript_map:
+    test/hello: {status: 0, task_status: 0}
+  node_map:
+    hv1.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    hv2.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    hv3.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    hv4.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    hv5.qemu.mydns.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

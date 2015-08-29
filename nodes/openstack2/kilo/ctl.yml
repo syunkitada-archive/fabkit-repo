@@ -65,11 +65,11 @@ nova:
     connection_name: nova
   state_path: /var/lib/nova
   rpc_backend: rabbit
-  rabbit_host: ${#rabbitmq.host}
-  rabbit_port: ${#rabbitmq.port}
-  rabbit_userid: ${#rabbitmq.users.openstack.user}
-  rabbit_password: ${#rabbitmq.users.openstack.password}
-  rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  rabbit_host: ${#rabbitmq.common.host}
+  rabbit_port: ${#rabbitmq.common.port}
+  rabbit_userid: ${#rabbitmq.common.users.openstack.user}
+  rabbit_password: ${#rabbitmq.common.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
   reserved_host_disk_mb: 64
   reserved_host_memory_mb: 32
   novncproxy_base_url: http://192.168.122.43:6080/vnc_auto.html
@@ -100,11 +100,11 @@ neutron:
   host: 192.168.122.43
   database:
     connection_name: neutron
-  rabbit_host: ${#rabbitmq.host}
-  rabbit_port: ${#rabbitmq.port}
-  rabbit_userid: ${#rabbitmq.users.openstack.user}
-  rabbit_password: ${#rabbitmq.users.openstack.password}
-  rabbit_virtual_host: ${#rabbitmq.vhosts.openstack}
+  rabbit_host: ${#rabbitmq.common.host}
+  rabbit_port: ${#rabbitmq.common.port}
+  rabbit_userid: ${#rabbitmq.common.users.openstack.user}
+  rabbit_password: ${#rabbitmq.common.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
   auth_strategy: keystone
   lock_path: /var/lock/subsys/neutron
   nova_url: http://192.168.122.43:8774/v2/

@@ -1,0 +1,7 @@
+__status:
+  fabscript_map:
+    test/hello: {status: 0, task_status: 0}
+  node_map:
+    hello.co.jp:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

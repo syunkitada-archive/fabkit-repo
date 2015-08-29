@@ -1,10 +1,8 @@
 node_map:
   all_in_one:
     hosts:
-      - 192.168.122.43
+      - dev01.mydns.jp
     fabruns:
-      - openstack/mysql
-      - openstack/rabbitmq
       - openstack/keystone
       - openstack/glance
       - openstack/nova
@@ -13,53 +11,15 @@ node_map:
       - openstack/compute
       - openstack/test
 
-rabbitmq:
-  host: 192.168.122.43
-  port: 5672
-  vhosts:
-    openstack: /openstack
-  users:
-    openstack:
-      user: openstack
-      password: openstackpass
-      permissions:
-        - vhost: ${#rabbitmq.vhosts.openstack}
-          permissions: '".*" ".*" ".*"'
+  rabbitmq:
+    hosts:
+      - dev01.mydns.jp
+      - dev02.mydns.jp
+    fabruns:
+      - openstack/rabbitmq
 
-mysql:
-  users:
-    openstack:
-      password: openstackpass
-      host: localhost
-      privileges: ALL PRIVILEGES
-  databases:
-    keystone: 
-      dbname: keystone
-      host: localhost
-      port: 3306
-      user: openstack
-    nova: 
-      dbname: nova
-      host: localhost
-      port: 3306
-      user: openstack
-    cinder: 
-      dbname: cinder
-      host: localhost
-      port: 3306
-      user: openstack
-    neutron: 
-      dbname: neutron
-      host: localhost
-      port: 3306
-      user: openstack
-    glance: 
-      dbname: glance
-      host: localhost
-      port: 3306
-      user: openstack
-    horizon: 
-      dbname: horizon
-      host: localhost
-      port: 3306
-      user: openstack
+  mysql:
+    hosts:
+      - dev01.mydns.jp
+    fabruns:
+      - openstack/mysql

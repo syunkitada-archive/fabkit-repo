@@ -1,0 +1,37 @@
+mysql:
+  users:
+    openstack:
+      password: openstackpass
+      host: localhost
+      privileges: ALL PRIVILEGES
+  databases:
+    keystone: 
+      dbname: keystone
+      host: localhost
+      port: 3306
+      user: openstack
+    nova: 
+      dbname: nova
+      host: localhost
+      port: 3306
+      user: openstack
+    cinder: 
+      dbname: cinder
+      host: localhost
+      port: 3306
+      user: openstack
+    neutron: 
+      dbname: neutron
+      host: localhost
+      port: 3306
+      user: openstack
+    glance: 
+      dbname: glance
+      host: localhost
+      port: 3306
+      user: openstack
+    horizon: 
+      dbname: horizon
+      host: localhost
+      port: 3306
+      user: openstack

@@ -1,0 +1,6 @@
+msg: hello
+node_map:
+  test2:
+    hosts:
+      - hello.co.jp
+    fabruns: [test/hello]

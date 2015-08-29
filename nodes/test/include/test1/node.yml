@@ -1,0 +1,6 @@
+include: test/include/test_common
+node_map:
+  test1:
+    hosts:
+      - hello.co.jp
+    fabruns: [test/hello]

@@ -1,0 +1,6 @@
+node_map:
+  hello:
+    hosts:
+      - test
+    fabscripts:
+      - hello

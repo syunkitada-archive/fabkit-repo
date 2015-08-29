@@ -1,9 +1,10 @@
 # coding: utf-8
 
-from fabkit import task, run
+from fabkit import task, env
 
 
 @task(is_bootstrap=False)
 def setup():
-    print 'TEST'
+    print '{0}: hello'.format(env.host)
+    print env.cluster
     # run('touch /tmp/test')

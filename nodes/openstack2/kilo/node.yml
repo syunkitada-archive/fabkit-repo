@@ -3,6 +3,7 @@ node_map:
     hosts:
       - dev01.mydns.jp
     fabruns:
+      - openstack/bootstrap
       - openstack/keystone
       - openstack/glance
       - openstack/nova
@@ -10,6 +11,7 @@ node_map:
       - openstack/horizon
       - openstack/compute
       - openstack/test
+
 
   rabbitmq:
     hosts:
@@ -21,5 +23,6 @@ node_map:
   mysql:
     hosts:
       - dev01.mydns.jp
+      - dev02.mydns.jp
     fabruns:
       - openstack/mysql

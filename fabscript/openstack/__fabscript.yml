@@ -1,7 +1,14 @@
+bootstrap:
+  status_flow: [1]
+
 mysql:
+  require:
+    openstack/bootstrap: 1
   status_flow: [1]
 
 rabbitmq:
+  require:
+    openstack/bootstrap: 1
   status_flow: [1]
 
 keystone:

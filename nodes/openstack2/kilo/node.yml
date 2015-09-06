@@ -16,13 +16,11 @@ node_map:
   rabbitmq:
     hosts:
       - dev01.mydns.jp
-      - dev02.mydns.jp
     fabruns:
       - openstack/rabbitmq
 
   mysql:
     hosts:
       - dev01.mydns.jp
-      - dev02.mydns.jp
     fabruns:
       - openstack/mysql

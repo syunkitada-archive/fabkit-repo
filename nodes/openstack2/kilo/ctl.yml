@@ -43,6 +43,13 @@ keystone:
       publicurl: http://${#neutron.host}:9696
       internalurl: http://${#neutron.host}:9696
       adminurl: http://${#neutron.host}:9696
+    cinder:
+      type: volume
+      region: RegionOne
+      description: Openstack Volume Service
+      publicurl: http://${#cinder.host}:9292
+      internalurl: http://${#cinder.host}:9292
+      adminurl: http://${#cinder.host}:9292
 
 glance:
   version: kilo
@@ -115,6 +122,7 @@ neutron:
     flat_networks:
       - physnet1
   linuxbridge:
+    enable_vxlan: True
     tenant_network_type: flat
     network_vlan_ranges:
       - physnet1
@@ -139,3 +147,6 @@ horizon:
   time_zone: Asia/Tokyo
   debug: True
   template_debug: True
+
+cinder:
+  host: ${#node_map.all_in_one.hosts.0}

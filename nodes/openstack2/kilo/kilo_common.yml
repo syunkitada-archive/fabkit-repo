@@ -1,0 +1,196 @@
+os_package_map:
+  tools:
+    prefix: /opt/os-tools
+    clients:
+      - { cmd: openstack, package: python-openstackclient }
+      - { cmd: keystone, package: python-keystoneclient }
+      - { cmd: glance, package: python-glanceclient }
+      - { cmd: nova, package: python-novaclient }
+      - { cmd: neutron, package: python-neutronclient }
+      - { cmd: cinder, package: python-cinderclient }
+
+  keystone:
+    name: keystone
+    exec_user: keystone
+    prefix: /opt/keystone
+    python: "2.7"
+    git_url: https://github.com/openstack/keystone.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/keystone }
+    cpdirs:
+      - { from: etc, to: /etc/keystone }
+    services:
+      - name: keystone
+        description: OpenStack Identity Service
+        exec: ${#os_package_map.keystone.prefix}/bin/keystone-all
+              --config-file=/etc/keystone/keystone.conf
+              --log-file=/var/log/keystone/all.log
+
+  glance:
+    name: glance
+    exec_user: glance
+    prefix: /opt/glance
+    python: "2.7"
+    git_url: https://github.com/openstack/glance.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/glance }
+    cpdirs:
+      - { from: etc, to: /etc/glance }
+    services:
+      - name: glance-api
+        description: OpenStack Image Service
+        exec: ${#os_package_map.glance.prefix}/bin/glance-api
+              --config-file=/etc/glance/glance-api.conf
+              --log-file=/var/log/glance/api.log
+      - name: glance-registry
+        description: OpenStack Image Service
+        exec: ${#os_package_map.glance.prefix}/bin/glance-registry
+              --config-file=/etc/glance/glance-registry.conf
+              --log-file=/var/log/glance/registry.log
+
+  nova:
+    name: nova
+    exec_user: nova
+    prefix: /user
+    python: "2.7"
+    git_url: https://github.com/openstack/nova.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/nova }
+      - { path: /var/lock/subsys/nova }
+      - { path: /var/lib/nova }
+    cpdirs:
+      - { from: etc/nova, to: /etc/nova }
+    services:
+      - name: nova-api
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-api
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/api.log
+      - name: nova-cert
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-cert
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/cert.log
+      - name: nova-scheduler
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-scheduler
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/scheduler.log
+      - name: nova-conductor
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-conductor
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/conductor.log
+      - name: nova-novncproxy
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-novncproxy
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/novncproxy.log
+      - name: nova-compute
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-compute
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/compute.log
+
+  neutron:
+    name: neutron
+    exec_user: neutron
+    prefix: /opt/neutron
+    python: "2.7"
+    git_url: https://github.com/openstack/neutron.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/neutron }
+    cpdirs:
+      - { from: etc, to: /etc/neutron }
+      - { from: etc/neutron/plugins, to: /etc/neutron/plugins }
+    services:
+      - name: neutron-server
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-server
+              --config-file=/etc/neutron/neutron.conf
+              --log-file=/var/log/neutron/server.log
+      - name: neutron-linuxbridge-agent
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-linuxbridge-agent
+              --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/plugins/linuxbridge/linuxbridge_conf.ini
+              --config-file=/etc/neutron/plugins/ml2/ml2_conf.ini
+              --log-file=/var/log/neutron/linuxbridge-agent.log
+
+  horizon:
+    name: horizon
+    exec_user: horizon
+    prefix: /usr
+    python: "2.7"
+    git_url: https://github.com/openstack/horizon.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages:
+      - python-memcached
+    mkdirs: []
+    cpdirs:
+      - { from: ./, to: /usr/lib/horizon }
+    services:
+      - name: cinder-api
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-api
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/api.log
+      - name: cinder-scheduler
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-scheduler
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/scheduler.log
+      - name: cinder-volume
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-volume
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/scheduler.log
+
+  cinder:
+    name: cinder
+    exec_user: cinder
+    prefix: /opt/cinder
+    python: "2.7"
+    git_url: https://github.com/openstack/cinder.git
+    branch: stable/kilo
+    version: kilo
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/cinder }
+    cpdirs:
+      - { from: etc/cinder, to: /etc/cinder }
+    services:
+      - name: cinder-api
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-api
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/api.log
+      - name: cinder-scheduler
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-scheduler
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/scheduler.log
+      - name: cinder-volume
+        description: OpenStack Volume Service
+        exec: ${#os_package_map.cinder.prefix}/bin/cinder-volume
+              --config-file=/etc/cinder/cinder.conf
+              --log-file=/var/log/cinder/scheduler.log

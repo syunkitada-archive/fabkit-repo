@@ -22,6 +22,12 @@ glance:
     openstack/keystone: 1
     openstack/mysql: 1
 
+cinder:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+
 nova:
   status_flow: [1]
   require:

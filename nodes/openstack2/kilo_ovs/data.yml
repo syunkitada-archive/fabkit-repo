@@ -1,0 +1,43 @@
+include:
+  - openstack2/kilo
+
+neutron:
+  ml2:
+    type_drivers: flat
+    tenant_network_types: flat
+    mechanism_drivers: openvswitch
+    flat_networks:
+      - ex-net
+  ovs:
+    enable: True
+    integration_bridge: br-int
+    physical_interface_mappings:
+      - br-ex:eth0
+    bridge_mappings:
+      - ex-net:br-ex
+    tunnel_types: gre
+  l3:
+    enable: True
+    external_network_bridge: br-ex
+  dhcp:
+    enable: True
+  metadata:
+    enable: True
+  networks:
+    ex_net:
+      options:
+        - provider:physical_network=ex-net
+        - provider:network_type=flat
+        - shared
+    demo_net:
+      options:
+        - provider:physical_network=ex-net
+        - provider:network_type=flat
+        - shared
+  subnets:
+    test_subnet:
+      cidr: 192.168.122.0/24
+      gatewey:
+      options:
+        - allocation-pool start=192.168.122.100,end=192.168.122.120
+      dhcp:

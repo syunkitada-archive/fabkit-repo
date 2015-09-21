@@ -1,15 +1,15 @@
 __status:
   fabscript_map:
-    openstack/bootstrap: {status: 1, task_status: 0}
+    openstack/bootstrap: {status: 1, task_status: 100}
     openstack/cinder: {status: 1, task_status: 100}
     openstack/compute: {status: 1, task_status: 100}
     openstack/glance: {status: 1, task_status: 100}
     openstack/horizon: {status: 1, task_status: 100}
-    openstack/keystone: {status: 1, task_status: 0}
-    openstack/mysql: {status: 1, task_status: 0}
+    openstack/keystone: {status: 1, task_status: 100}
+    openstack/mysql: {status: 1, task_status: 100}
     openstack/neutron: {status: 1, task_status: 0}
     openstack/nova: {status: 1, task_status: 100}
-    openstack/rabbitmq: {status: 1, task_status: 0}
+    openstack/rabbitmq: {status: 1, task_status: 100}
     openstack/test: {status: 0, task_status: 100}
   node_map:
     192.168.122.43:
@@ -36,26 +36,26 @@ __status:
       fabscript_map:
         openstack/bootstrap: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/cinder: {check_msg: '', check_status: -1, msg: registered, status: 1,
-          task_status: 100}
+        openstack/cinder: {check_msg: '', check_status: -1, msg: failed, status: 1,
+          task_status: 500}
         openstack/compute: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/glance: {check_msg: '', check_status: -1, msg: success, status: 1,
-          task_status: 500}
+        openstack/glance: {check_msg: '', check_status: -1, msg: registered, status: 1,
+          task_status: 100}
         openstack/horizon: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/keystone: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/mysql: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/neutron: {check_msg: '', check_status: -1, msg: registered, status: 1,
-          task_status: 100}
+        openstack/neutron: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/nova: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/rabbitmq: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/test: {check_msg: '', check_status: -1, msg: registered, status: 0,
-          task_status: 500}
+          task_status: 100}
     dev02.mydns.jp:
       fabscript_map:
         openstack/bootstrap: {check_msg: '', check_status: -1, msg: registered, status: 1,

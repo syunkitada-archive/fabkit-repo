@@ -89,7 +89,7 @@ nova:
   glance_host: ${#glance.host}
   compute_driver: libvirt.LibvirtDriver
   service_neutron_metadata_proxy: true
-  neutron_metadata_proxy_shared_secret: METADATA_SECRET
+  metadata_proxy_shared_secret: METADATA_SECRET
   libvirt:
     virt_type: qemu
   flavors:

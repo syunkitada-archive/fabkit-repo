@@ -13,7 +13,6 @@ os_package_map:
     name: keystone
     exec_user: keystone
     prefix: /opt/keystone
-    python: "2.7"
     git_url: https://github.com/openstack/keystone.git
     branch: stable/kilo
     version: kilo
@@ -34,7 +33,6 @@ os_package_map:
     name: glance
     exec_user: glance
     prefix: /opt/glance
-    python: "2.7"
     git_url: https://github.com/openstack/glance.git
     branch: stable/kilo
     version: kilo
@@ -42,6 +40,7 @@ os_package_map:
     append_packages: []
     mkdirs:
       - { path: /var/log/glance }
+      - { path: /var/lib/glance }
     cpdirs:
       - { from: etc, to: /etc/glance }
     services:
@@ -59,8 +58,7 @@ os_package_map:
   nova:
     name: nova
     exec_user: nova
-    prefix: /user
-    python: "2.7"
+    prefix: /opt/nova
     git_url: https://github.com/openstack/nova.git
     branch: stable/kilo
     version: kilo
@@ -136,8 +134,7 @@ os_package_map:
   horizon:
     name: horizon
     exec_user: horizon
-    prefix: /usr
-    python: "2.7"
+    prefix: /opt/horizon
     git_url: https://github.com/openstack/horizon.git
     branch: stable/kilo
     version: kilo
@@ -147,28 +144,12 @@ os_package_map:
     mkdirs: []
     cpdirs:
       - { from: ./, to: /usr/lib/horizon }
-    services:
-      - name: cinder-api
-        description: OpenStack Volume Service
-        exec: ${#os_package_map.cinder.prefix}/bin/cinder-api
-              --config-file=/etc/cinder/cinder.conf
-              --log-file=/var/log/cinder/api.log
-      - name: cinder-scheduler
-        description: OpenStack Volume Service
-        exec: ${#os_package_map.cinder.prefix}/bin/cinder-scheduler
-              --config-file=/etc/cinder/cinder.conf
-              --log-file=/var/log/cinder/scheduler.log
-      - name: cinder-volume
-        description: OpenStack Volume Service
-        exec: ${#os_package_map.cinder.prefix}/bin/cinder-volume
-              --config-file=/etc/cinder/cinder.conf
-              --log-file=/var/log/cinder/scheduler.log
+    services: []
 
   cinder:
     name: cinder
     exec_user: cinder
     prefix: /opt/cinder
-    python: "2.7"
     git_url: https://github.com/openstack/cinder.git
     branch: stable/kilo
     version: kilo

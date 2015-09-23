@@ -115,6 +115,7 @@ neutron:
   auth_strategy: keystone
   lock_path: /var/lock/subsys/neutron
   nova_url: http://192.168.122.43:8774/v2/
+  service_plugins: router
   ml2:
     type_drivers: flat
     tenant_network_types: flat

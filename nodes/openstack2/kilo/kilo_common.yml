@@ -57,7 +57,7 @@ os_package_map:
 
   nova:
     name: nova
-    exec_user: nova
+    exec_user: root
     prefix: /opt/nova
     git_url: https://github.com/openstack/nova.git
     branch: stable/kilo
@@ -68,6 +68,7 @@ os_package_map:
       - { path: /var/log/nova }
       - { path: /var/lock/subsys/nova }
       - { path: /var/lib/nova }
+      - { path: /var/lib/nova/instances }
     cpdirs:
       - { from: etc/nova, to: /etc/nova }
     services:
@@ -104,7 +105,7 @@ os_package_map:
 
   neutron:
     name: neutron
-    exec_user: neutron
+    exec_user: root
     prefix: /opt/neutron
     python: "2.7"
     git_url: https://github.com/openstack/neutron.git
@@ -127,9 +128,34 @@ os_package_map:
         description: OpenStack Network Service
         exec: ${#os_package_map.neutron.prefix}/bin/neutron-linuxbridge-agent
               --config-file=/etc/neutron/neutron.conf
-              --config-file=/etc/neutron/plugins/linuxbridge/linuxbridge_conf.ini
               --config-file=/etc/neutron/plugins/ml2/ml2_conf.ini
+              --config-file=/etc/neutron/plugins/linuxbridge/linuxbridge_conf.ini
               --log-file=/var/log/neutron/linuxbridge-agent.log
+      - name: neutron-openvswitch-agent
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-openvswitch-agent
+              --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/plugins/ml2/ml2_conf.ini
+              --config-file=/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
+              --log-file=/var/log/neutron/openvswitch-agent.log
+      - name: neutron-dhcp-agent
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-dhcp-agent
+              --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/dhcp_agent.ini
+              --log-file=/var/log/neutron/dhcp-agent.log
+      - name: neutron-l3-agent
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-l3-agent
+              --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/l3_agent.ini
+              --log-file=/var/log/neutron/l3-agent.log
+      - name: neutron-metadata-agent
+        description: OpenStack Network Service
+        exec: ${#os_package_map.neutron.prefix}/bin/neutron-metadata-agent
+              --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/metadata_agent.ini
+              --log-file=/var/log/neutron/metadata-agent.log
 
   horizon:
     name: horizon
@@ -143,7 +169,9 @@ os_package_map:
       - python-memcached
     mkdirs: []
     cpdirs:
-      - { from: ./, to: /usr/lib/horizon }
+      - { from: ./, to: /opt/horizon/lib/horizon }
+      # - { from: manage.py, to: /opt/horizon/lib/horizon/manage.py }
+      # - { from: openstack_dashboard, to: /opt/horizon/lib/horizon/openstack_dashboard }
     services: []
 
   cinder:

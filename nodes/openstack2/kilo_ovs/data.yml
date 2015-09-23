@@ -12,7 +12,7 @@ neutron:
     enable: True
     integration_bridge: br-int
     physical_interface_mappings:
-      - br-ex:eth0
+      - br-ex:default
     bridge_mappings:
       - ex-net:br-ex
     tunnel_types: gre
@@ -24,20 +24,27 @@ neutron:
   metadata:
     enable: True
   networks:
-    ex_net:
+    - name: ex-net
       options:
         - provider:physical_network=ex-net
         - provider:network_type=flat
         - shared
-    demo_net:
-      options:
-        - provider:physical_network=ex-net
-        - provider:network_type=flat
-        - shared
-  subnets:
-    test_subnet:
-      cidr: 192.168.122.0/24
-      gatewey:
-      options:
-        - allocation-pool start=192.168.122.100,end=192.168.122.120
-      dhcp:
+      subnets:
+        - name: ex-net-subnet
+          cidr: 192.168.122.0/24
+          gatewey: 192.168.122.1
+          options:
+            - allocation-pool start=192.168.122.100,end=192.168.122.120
+    - name: int-net
+      subnets:
+        - name: ent-net-subnet
+          cidr: 192.168.1.0/24
+          gatewey: 192.168.1.1
+          options:
+            - allocation-pool start=192.168.1.2,end=192.168.1.254
+            - dns-nameserver 192.168.122.1
+  routers:
+    - name: demo-router
+      gateway: ext-net
+      interfaces:
+        - int-net

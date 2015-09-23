@@ -42,6 +42,11 @@ neutron:
     openstack/mysql: 1
     openstack/rabbitmq: 1
 
+neutron_network:
+  status_flow: [1]
+  require:
+    openstack/neutron: 1
+
 horizon:
   status_flow: [1]
   require:

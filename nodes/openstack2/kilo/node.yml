@@ -9,6 +9,7 @@ node_map:
       # - openstack/cinder
       - openstack/nova
       - openstack/neutron
+      - openstack/neutron_network
       - openstack/horizon
       - openstack/compute
       - openstack/test

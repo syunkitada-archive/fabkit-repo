@@ -2,6 +2,7 @@ keystone:
   host: ${#node_map.all_in_one.hosts.0}
   version: kilo
   branch: stable/kilo
+  debug: True
   admin_user: admin
   admin_password: adminpass
   service_tenant_name: service
@@ -47,14 +48,22 @@ keystone:
       type: volume
       region: RegionOne
       description: Openstack Volume Service
-      publicurl: http://${#cinder.host}:9292
-      internalurl: http://${#cinder.host}:9292
-      adminurl: http://${#cinder.host}:9292
+      publicurl: http://${#cinder.host}:8776/v1/%\(tenant_id\)s
+      internalurl: http://${#cinder.host}:8776/v1/%\(tenant_id\)s
+      adminurl: http://${#cinder.host}:8776/v1/%\(tenant_id\)s
+    cinderv2:
+      type: volumev2
+      region: RegionOne
+      description: Openstack Volume Service
+      publicurl: http://${#cinder.host}:8776/v2/%\(tenant_id\)s
+      internalurl: http://${#cinder.host}:8776/v2/%\(tenant_id\)s
+      adminurl: http://${#cinder.host}:8776/v2/%\(tenant_id\)s
 
 glance:
+  host: ${#node_map.all_in_one.hosts.0}
   version: kilo
   branch: stable/kilo
-  host: ${#node_map.all_in_one.hosts.0}
+  debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/glance
   images:
@@ -65,9 +74,10 @@ glance:
       is-public: True
 
 nova:
+  host: ${#node_map.all_in_one.hosts.0}
   version: kilo
   branch: stable/kilo
-  host: ${#node_map.all_in_one.hosts.0}
+  debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/nova
   state_path: /var/lib/nova
@@ -79,10 +89,10 @@ nova:
   rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
   reserved_host_disk_mb: 64
   reserved_host_memory_mb: 32
-  novncproxy_base_url: http://192.168.122.43:6080/vnc_auto.html
+  novncproxy_base_url: http://${#nova.host}:6080/vnc_auto.html
   auth_strategy: keystone
   network_api_class: nova.network.neutronv2.api.API
-  neutron_url: http://192.168.122.43:9696
+  neutron_url: http://${#nova.host}:9696
   linuxnet_interface_driver: nova.network.linux_net.LinuxBridgeInterfaceDriver
   firewall_driver: nova.virt.firewall.NoopFirewallDriver
   security_group_api: nova
@@ -102,9 +112,10 @@ nova:
 
 
 neutron:
+  host: ${#node_map.all_in_one.hosts.0}
   version: kilo
   branch: stable/kilo
-  host: ${#node_map.all_in_one.hosts.0}
+  debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/neutron
   rabbit_host: ${#rabbitmq.common.host}
@@ -112,10 +123,18 @@ neutron:
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}
   rabbit_password: ${#rabbitmq.common.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
+  rabbit_retry_interval: 1
+  rabbit_retry_backoff: 2
+  rabbit_max_retries: 10
+  rabbit_ha_queues: true
   auth_strategy: keystone
   lock_path: /var/lock/subsys/neutron
-  nova_url: http://192.168.122.43:8774/v2/
+  nova_url: http://${#nova.host}:8774/v2/
   service_plugins: router
+  agent_down_time: 120
+  agent:
+    # report_interval should be half or less than agent_down_time
+    report_interval: 60
   ml2:
     type_drivers: flat
     tenant_network_types: flat
@@ -142,12 +161,23 @@ neutron:
             - allocation-pool start=192.168.122.100,end=192.168.122.120
 
 horizon:
+  host: ${#node_map.all_in_one.hosts.0}
   version: kilo
   branch: stable/kilo
-  host: ${#node_map.all_in_one.hosts.0}
   time_zone: Asia/Tokyo
   debug: True
   template_debug: True
 
 cinder:
   host: ${#node_map.all_in_one.hosts.0}
+  version: kilo
+  branch: stable/kilo
+  debug: True
+  verbose: True
+  database:
+    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/cinder
+  rabbit_host: ${#rabbitmq.common.host}
+  rabbit_port: ${#rabbitmq.common.port}
+  rabbit_userid: ${#rabbitmq.common.users.openstack.user}
+  rabbit_password: ${#rabbitmq.common.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}

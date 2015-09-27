@@ -4,12 +4,12 @@ __status:
     openstack/cinder: {status: 1, task_status: 100}
     openstack/compute: {status: 1, task_status: 100}
     openstack/glance: {status: 1, task_status: 100}
-    openstack/horizon: {status: 1, task_status: 0}
+    openstack/horizon: {status: 1, task_status: 100}
     openstack/keystone: {status: 1, task_status: 100}
     openstack/mysql: {status: 1, task_status: 100}
     openstack/neutron: {status: 1, task_status: 100}
-    openstack/neutron_network: {status: 0, task_status: 100}
-    openstack/nova: {status: 1, task_status: 100}
+    openstack/neutron_network: {status: 1, task_status: 100}
+    openstack/nova: {status: 1, task_status: 0}
     openstack/rabbitmq: {status: 1, task_status: 100}
     openstack/test: {status: 0, task_status: 100}
   node_map:
@@ -37,14 +37,14 @@ __status:
       fabscript_map:
         openstack/bootstrap: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/cinder: {check_msg: '', check_status: -1, msg: failed, status: 1,
-          task_status: 500}
+        openstack/cinder: {check_msg: '', check_status: -1, msg: registered, status: 1,
+          task_status: 100}
         openstack/compute: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/glance: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/horizon: {check_msg: '', check_status: -1, msg: success, status: 1,
-          task_status: 0}
+        openstack/horizon: {check_msg: '', check_status: -1, msg: registered, status: 1,
+          task_status: 100}
         openstack/keystone: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/mysql: {check_msg: '', check_status: -1, msg: registered, status: 1,
@@ -53,8 +53,8 @@ __status:
           task_status: 100}
         openstack/neutron_network: {check_msg: '', check_status: -1, msg: registered,
           status: 1, task_status: 100}
-        openstack/nova: {check_msg: '', check_status: -1, msg: registered, status: 1,
-          task_status: 100}
+        openstack/nova: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         openstack/rabbitmq: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/test: {check_msg: '', check_status: -1, msg: registered, status: 0,

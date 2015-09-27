@@ -3,8 +3,8 @@ include:
 
 neutron:
   ml2:
-    type_drivers: flat
-    tenant_network_types: flat
+    type_drivers: local,flat,gre
+    tenant_network_types: local,gre
     mechanism_drivers: openvswitch
     flat_networks:
       - ex-net
@@ -36,15 +36,17 @@ neutron:
           options:
             - allocation-pool start=192.168.122.100,end=192.168.122.120
     - name: int-net
+      oprions:
+        - shared
       subnets:
-        - name: ent-net-subnet
+        - name: int-net-subnet
           cidr: 192.168.1.0/24
           gatewey: 192.168.1.1
           options:
             - allocation-pool start=192.168.1.2,end=192.168.1.254
             - dns-nameserver 192.168.122.1
   routers:
-    - name: demo-router
+    - name: test-router
       gateway: ext-net
       interfaces:
         - int-net

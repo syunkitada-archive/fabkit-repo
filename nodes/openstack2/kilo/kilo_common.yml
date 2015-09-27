@@ -77,11 +77,6 @@ os_package_map:
         exec: ${#os_package_map.nova.prefix}/bin/nova-api
               --config-file=/etc/nova/nova.conf
               --log-file=/var/log/nova/api.log
-      - name: nova-cert
-        description: OpenStack Nova Service
-        exec: ${#os_package_map.nova.prefix}/bin/nova-cert
-              --config-file=/etc/nova/nova.conf
-              --log-file=/var/log/nova/cert.log
       - name: nova-scheduler
         description: OpenStack Nova Service
         exec: ${#os_package_map.nova.prefix}/bin/nova-scheduler
@@ -92,6 +87,21 @@ os_package_map:
         exec: ${#os_package_map.nova.prefix}/bin/nova-conductor
               --config-file=/etc/nova/nova.conf
               --log-file=/var/log/nova/conductor.log
+      - name: nova-cert
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-cert
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/cert.log
+      - name: nova-console
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-console
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/console.log
+      - name: nova-consoleauth
+        description: OpenStack Nova Service
+        exec: ${#os_package_map.nova.prefix}/bin/nova-consoleauth
+              --config-file=/etc/nova/nova.conf
+              --log-file=/var/log/nova/consoleauth.log
       - name: nova-novncproxy
         description: OpenStack Nova Service
         exec: ${#os_package_map.nova.prefix}/bin/nova-novncproxy
@@ -123,6 +133,9 @@ os_package_map:
         description: OpenStack Network Service
         exec: ${#os_package_map.neutron.prefix}/bin/neutron-server
               --config-file=/etc/neutron/neutron.conf
+              --config-file=/etc/neutron/plugins/ml2/ml2_conf.ini
+              --config-file=/etc/neutron/plugins/linuxbridge/linuxbridge_conf.ini
+              --config-file=/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
               --log-file=/var/log/neutron/server.log
       - name: neutron-linuxbridge-agent
         description: OpenStack Network Service
@@ -202,4 +215,4 @@ os_package_map:
         description: OpenStack Volume Service
         exec: ${#os_package_map.cinder.prefix}/bin/cinder-volume
               --config-file=/etc/cinder/cinder.conf
-              --log-file=/var/log/cinder/scheduler.log
+              --log-file=/var/log/cinder/volume.log

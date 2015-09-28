@@ -1,0 +1,28 @@
+node_map:
+  all_in_one:
+    hosts:
+      - dev01.mydns.jp
+    fabruns:
+      - openstack/bootstrap
+      - openstack/keystone
+      - openstack/glance
+      - openstack/cinder
+      - openstack/nova
+      - openstack/neutron
+      - openstack/neutron_network
+      - openstack/horizon
+      - openstack/compute
+      - openstack/test
+
+
+  rabbitmq:
+    hosts:
+      - dev01.mydns.jp
+    fabruns:
+      - openstack/rabbitmq
+
+  mysql:
+    hosts:
+      - dev01.mydns.jp
+    fabruns:
+      - openstack/mysql

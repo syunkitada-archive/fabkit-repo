@@ -1,5 +1,5 @@
 include:
-  - openstack2/kilo
+  - openstack/kilo
 
 neutron:
   ml2:

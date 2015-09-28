@@ -1,0 +1,52 @@
+include:
+  - openstack/liberty
+
+neutron:
+  ml2:
+    type_drivers: local,flat,gre
+    tenant_network_types: local,gre
+    mechanism_drivers: openvswitch
+    flat_networks:
+      - ex-net
+  ovs:
+    enable: True
+    integration_bridge: br-int
+    physical_interface_mappings:
+      - br-ex:default
+    bridge_mappings:
+      - ex-net:br-ex
+    tunnel_types: gre
+  l3:
+    enable: True
+    external_network_bridge: br-ex
+  dhcp:
+    enable: True
+  metadata:
+    enable: True
+  networks:
+    - name: ex-net
+      options:
+        - provider:physical_network=ex-net
+        - provider:network_type=flat
+        - shared
+      subnets:
+        - name: ex-net-subnet
+          cidr: 192.168.122.0/24
+          gatewey: 192.168.122.1
+          options:
+            - allocation-pool start=192.168.122.100,end=192.168.122.120
+    - name: int-net
+      oprions:
+        - shared
+      subnets:
+        - name: int-net-subnet
+          cidr: 192.168.1.0/24
+          gatewey: 192.168.1.1
+          options:
+            - allocation-pool start=192.168.1.2,end=192.168.1.254
+            - dns-nameserver 192.168.122.1
+  routers:
+    - name: test-router
+      gateway: ext-net
+      interfaces:
+        - int-net

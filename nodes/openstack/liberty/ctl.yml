@@ -1,7 +1,6 @@
 keystone:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   debug: True
   admin_user: admin
   admin_password: adminpass
@@ -61,8 +60,7 @@ keystone:
 
 glance:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/glance
@@ -75,8 +73,7 @@ glance:
 
 nova:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/nova
@@ -113,8 +110,7 @@ nova:
 
 neutron:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   debug: True
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/neutron
@@ -162,16 +158,14 @@ neutron:
 
 horizon:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   time_zone: Asia/Tokyo
   debug: True
   template_debug: True
 
 cinder:
   host: ${#node_map.all_in_one.hosts.0}
-  version: kilo
-  branch: stable/kilo
+  version: liberty
   debug: True
   verbose: True
   database:

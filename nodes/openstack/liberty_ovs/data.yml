@@ -1,6 +1,9 @@
 include:
   - openstack/liberty
 
+nova:
+  linuxnet_interface_driver: nova.network.linux_net.LinuxOVSInterfaceDriver
+
 neutron:
   ml2:
     type_drivers: local,flat,gre

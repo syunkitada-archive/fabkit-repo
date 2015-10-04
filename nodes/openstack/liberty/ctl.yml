@@ -134,7 +134,7 @@ neutron:
   ml2:
     type_drivers: flat
     tenant_network_types: flat
-    mechanism_drivers: linuxbridge
+    mechanism_drivers: "${require linuxbridge or openvswitch}"
     flat_networks:
       - physnet1
   linuxbridge:

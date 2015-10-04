@@ -15,10 +15,10 @@ def test_boot():
     result = nova.cmd("image-list 2>/dev/null | grep '| ' | grep -v '| ID' | awk '{print $4}'")
     image_list = result.split('\r\n')
 
-    result = nova.cmd("net-list 2>/dev/null | grep '| ' | grep -v '| ID' | awk '{print $2}'")
+    result = nova.cmd("net-list 2>/dev/null | grep 'test_net' | grep -v '| ID' | awk '{print $2}'")
     net_list = result.split('\r\n')
 
-    result = nova.cmd("flavor-list 2>/dev/null | sort -k 6 -n | grep '| ' | grep -v '| ID' | awk '{print $4}'")  # noqa
+    result = nova.cmd("flavor-list 2>/dev/null | sort -k 6 -n | grep 'RAM_64M-DISC_2G-VCPUS_1' | grep -v '| ID' | awk '{print $4}'")  # noqa
     flavor_list = result.split('\r\n')
 
     boot_cmd = 'boot --image {0} --flavor {1} --nic net-id={2} {3}'.format(

@@ -1,0 +1,42 @@
+include:
+  - openstack/liberty
+
+node_map:
+  all_in_one:
+    fabruns:
+      - openstack/bootstrap
+      - openstack/keystone
+      - openstack/glance
+      - openstack/cinder
+      - openstack/nova
+      - openstack/neutron
+      - openstack/horizon
+      - openstack/compute
+      - openstack/test
+
+neutron:
+  ml2:
+    type_drivers: flat
+    tenant_network_types: flat
+    mechanism_drivers: linuxbridge
+    flat_networks:
+      - physnet1
+  linuxbridge:
+    enable: True
+    enable_vxlan: True
+    tenant_network_type: flat
+    network_vlan_ranges:
+      - physnet1
+    physical_interface_mappings:
+      - physnet1:eth0
+  networks:
+    - name: test_net
+      options:
+        - provider:physical_network=physnet1
+        - provider:network_type=flat
+        - shared
+      subnets:
+        - name: test_subnet
+          cidr: 192.168.122.0/24
+          options:
+            - allocation-pool start=192.168.122.100,end=192.168.122.120

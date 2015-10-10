@@ -216,3 +216,29 @@ os_package_map:
         exec: ${#os_package_map.cinder.prefix}/bin/cinder-volume
               --config-file=/etc/cinder/cinder.conf
               --log-file=/var/log/cinder/volume.log
+
+  heat:
+    name: heat
+    exec_user: root
+    prefix: /opt/heat
+    git_url: https://github.com/openstack/heat.git
+    branch: stable/liberty
+    version: liberty
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/heat }
+      - { path: /var/lib/heat }
+    cpdirs:
+      - { from: etc/heat, to: /etc/heat }
+    services:
+      - name: heat-api
+        description: OpenStack Orchestration Service
+        exec: ${#os_package_map.heat.prefix}/bin/heat-api
+              --config-file=/etc/heat/heat.conf
+              --log-file=/var/log/heat/api.log
+      - name: heat-engine
+        description: OpenStack Orchestration Service
+        exec: ${#os_package_map.heat.prefix}/bin/heat-engine
+              --config-file=/etc/heat/heat.conf
+              --log-file=/var/log/heat/engine.log

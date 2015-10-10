@@ -175,3 +175,34 @@ cinder:
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}
   rabbit_password: ${#rabbitmq.common.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
+
+heat:
+  host: ${#node_map.all_in_one.hosts.0}
+  version: liberty
+  debug: True
+  verbose: True
+  database:
+    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/heat
+  rabbit_host: ${#rabbitmq.common.host}
+  rabbit_port: ${#rabbitmq.common.port}
+  rabbit_userid: ${#rabbitmq.common.users.openstack.user}
+  rabbit_password: ${#rabbitmq.common.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
+  heat_metadata_server_url: http://${#heat.host}:8000
+  heat_waitcondition_server_url: http://${#heat.host}:8000/v1/waitcondition
+  stack_domain_admin: heat
+  stack_domain_admin_password: heatpass
+  stack_user_domain_name: heatdomain
+
+ceilometer:
+  host: ${#node_map.all_in_one.hosts.0}
+  version: liberty
+  debug: True
+  verbose: True
+  database:
+    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/heat
+  rabbit_host: ${#rabbitmq.common.host}
+  rabbit_port: ${#rabbitmq.common.port}
+  rabbit_userid: ${#rabbitmq.common.users.openstack.user}
+  rabbit_password: ${#rabbitmq.common.users.openstack.password}
+  rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}

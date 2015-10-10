@@ -47,6 +47,18 @@ neutron_network:
   require:
     openstack/neutron: 1
 
+heat:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+
+ceilometer:
+  status_flow: [1]
+  require:
+    openstack/keystone: 1
+    openstack/mysql: 1
+
 horizon:
   status_flow: [1]
   require:

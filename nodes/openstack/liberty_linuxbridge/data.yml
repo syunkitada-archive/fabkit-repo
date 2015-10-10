@@ -11,6 +11,8 @@ node_map:
       - openstack/nova
       - openstack/neutron
       - openstack/horizon
+      - openstack/heat
+      - openstack/ceilometer
       - openstack/compute
       - openstack/test
 

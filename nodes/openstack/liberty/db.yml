@@ -3,6 +3,9 @@ mysql:
     hosts: ${#node_map.mysql.hosts}
     host: ${#node_map.mysql.hosts.0}
     port: 3306
+    phpmyadmin:
+      enable: true
+      port: 8080
     slave_user: slave
     users:
       openstack:
@@ -29,3 +32,20 @@ mysql:
       - horizon
       - heat
       - ceilometer
+      - metering
+      - event
+      - alarm
+
+mongodb:
+  ceilometer:
+    port: 27017
+    hosts: ${#node_map.mysql.hosts}
+    host: ${#node_map.mysql.hosts.0}
+    users:
+      ceilometer:
+        db: ceilometer
+        user: ceilometer
+        password: ceilometerpass
+        roles:
+          - "readWrite"
+          - "dbAdmin"

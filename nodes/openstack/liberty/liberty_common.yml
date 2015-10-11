@@ -8,6 +8,8 @@ os_package_map:
       - { cmd: nova, package: python-novaclient }
       - { cmd: neutron, package: python-neutronclient }
       - { cmd: cinder, package: python-cinderclient }
+      - { cmd: heat, package: python-heatclient }
+      - { cmd: ceilometer, package: python-ceilometerclient }
 
   keystone:
     name: keystone
@@ -242,3 +244,49 @@ os_package_map:
         exec: ${#os_package_map.heat.prefix}/bin/heat-engine
               --config-file=/etc/heat/heat.conf
               --log-file=/var/log/heat/engine.log
+
+  ceilometer:
+    name: ceilometer
+    exec_user: root
+    prefix: /opt/ceilometer
+    git_url: https://github.com/openstack/ceilometer.git
+    branch: stable/liberty
+    version: liberty
+    is_develop: false
+    append_packages: []
+    mkdirs:
+      - { path: /var/log/ceilometer }
+      - { path: /var/lib/ceilometer }
+    cpdirs:
+      - { from: etc/ceilometer, to: /etc/ceilometer }
+    services:
+      - name: ceilometer-api
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-api
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/api.log
+      - name: ceilometer-agent-notification
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-agent-notification
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/notification.log
+      - name: ceilometer-alarm-evaluator
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-alarm-evaluator
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/alarm-evaluator.log
+      - name: ceilometer-alarm-notifier
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-alarm-notifier
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/notifier.log
+      - name: ceilometer-collector
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-collector
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/collector.log
+      - name: ceilometer-polling
+        description: OpenStack Telemetry Service
+        exec: ${#os_package_map.ceilometer.prefix}/bin/ceilometer-polling
+              --config-file=/etc/ceilometer/ceilometer.conf
+              --log-file=/var/log/ceilometer/polling.log

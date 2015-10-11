@@ -6,6 +6,11 @@ mysql:
     openstack/bootstrap: 1
   status_flow: [1]
 
+mongodb:
+  require:
+    openstack/bootstrap: 1
+  status_flow: [1]
+
 rabbitmq:
   require:
     openstack/bootstrap: 1

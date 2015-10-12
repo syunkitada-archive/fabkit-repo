@@ -46,10 +46,10 @@ __status:
           task_status: 100}
         openstack/compute: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
-        openstack/glance: {check_msg: '', check_status: -1, msg: success, status: 1,
-          task_status: 0}
-        openstack/heat: {check_msg: '', check_status: -1, msg: registered, status: 1,
+        openstack/glance: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
+        openstack/heat: {check_msg: '', check_status: -1, msg: failed, status: 1,
+          task_status: 500}
         openstack/horizon: {check_msg: '', check_status: -1, msg: registered, status: 1,
           task_status: 100}
         openstack/keystone: {check_msg: '', check_status: -1, msg: registered, status: 1,

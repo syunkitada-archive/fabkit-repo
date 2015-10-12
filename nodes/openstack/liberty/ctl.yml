@@ -111,7 +111,7 @@ nova:
   service_neutron_metadata_proxy: true
   metadata_proxy_shared_secret: METADATA_SECRET
   libvirt:
-    virt_type: qemu
+    virt_type: kvm
   flavors:
     RAM_64M-DISC_2G-VCPUS_1: [64, 2, 1]
     RAM_512M-DISC_10G-VCPUS_1: [512, 10, 1]
@@ -193,8 +193,8 @@ cinder:
 heat:
   host: ${#node_map.all_in_one.hosts.0}
   version: liberty
-  debug: True
-  verbose: True
+  debug: true
+  verbose: true
   database:
     connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/heat
   rabbit_host: ${#rabbitmq.common.host}
@@ -212,8 +212,8 @@ heat:
 ceilometer:
   host: ${#node_map.all_in_one.hosts.0}
   version: liberty
-  debug: True
-  verbose: True
+  debug: true
+  verbose: true
   database:
     connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/ceilometer
     metering_connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/metering

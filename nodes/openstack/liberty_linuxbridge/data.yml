@@ -10,6 +10,7 @@ node_map:
       - openstack/cinder
       - openstack/nova
       - openstack/neutron
+      - openstack/neutron_network
       - openstack/horizon
       - openstack/heat
       - openstack/ceilometer
@@ -31,6 +32,8 @@ neutron:
       - physnet1
     physical_interface_mappings:
       - physnet1:eth0
+  dhcp:
+    enable: true
   networks:
     - name: test_net
       options:

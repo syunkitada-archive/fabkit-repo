@@ -157,6 +157,8 @@ neutron:
       - physnet1
     physical_interface_mappings:
       - physnet1:eth0
+  dhcp:
+    enable: true
   test_net: test_net
   networks:
     test_net:
@@ -189,6 +191,12 @@ cinder:
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}
   rabbit_password: ${#rabbitmq.common.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
+  enabled_backends: [lvm01]
+  backends:
+    lvm01:
+      type: lvm
+      size: 5G
+      volume_group: cinder-volumes
 
 heat:
   host: ${#node_map.all_in_one.hosts.0}

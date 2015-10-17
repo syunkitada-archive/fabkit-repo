@@ -191,15 +191,18 @@ os_package_map:
 
   cinder:
     name: cinder
-    exec_user: cinder
+    exec_user: root
     prefix: /opt/cinder
     git_url: https://github.com/openstack/cinder.git
     branch: stable/liberty
     version: liberty
     is_develop: false
     append_packages: []
+    lns:
+      - { src: /opt/cinder/bin/cinder-rtstool, dest: /usr/bin/cinder-rtstool }
     mkdirs:
       - { path: /var/log/cinder }
+      - { path: /var/lib/cinder/volumes }
     cpdirs:
       - { from: etc/cinder, to: /etc/cinder }
     services:

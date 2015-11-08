@@ -1,21 +1,12 @@
 include:
   - openstack/liberty
 
-node_map:
-  all_in_one:
-    fabruns:
-      - openstack/bootstrap
-      - openstack/keystone
-      - openstack/glance
-      - openstack/cinder
-      - openstack/nova
-      - openstack/neutron
-      - openstack/neutron_network
-      - openstack/horizon
-      - openstack/heat
-      - openstack/ceilometer
-      - openstack/compute
-      - openstack/test
+gluster:
+  common:
+    volume: common
+    brick: /export/common
+    hosts: ${#node_map.gluster.hosts}
+    host: ${#node_map.gluster.hosts.0}
 
 neutron:
   ml2:

@@ -19,7 +19,8 @@ os_package_map:
     branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
+    append_packages:
+      - pymysql
     mkdirs:
       - { path: /var/log/keystone }
     cpdirs:

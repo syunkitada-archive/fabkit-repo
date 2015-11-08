@@ -13,7 +13,7 @@ keystone:
   auth_protocol: http
   identity_uri: ${#keystone.auth_protocol}://${#keystone.auth_host}:${#keystone.auth_port}
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/keystone
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/keystone
   services:
     keystone:
       type: identity

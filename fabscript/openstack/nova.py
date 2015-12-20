@@ -1,12 +1,13 @@
 # coding: utf-8
 
-from fabkit import task
+from fabkit import task, parallel
 from fablib.openstack import Nova
 
 nova = Nova()
 
 
 @task
+@parallel
 def setup():
     nova.setup()
 

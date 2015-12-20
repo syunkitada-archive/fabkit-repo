@@ -38,8 +38,8 @@ node_map:
     fabruns:
       - openstack/mysql
 
-  mongodb:
-    hosts:
-      - dev01.mydns.jp
-    fabruns:
-      - openstack/mongodb
+#   mongodb:
+#     hosts:
+#       - dev01.mydns.jp
+#     fabruns:
+#       - openstack/mongodb

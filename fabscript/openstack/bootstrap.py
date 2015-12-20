@@ -1,14 +1,16 @@
 # coding: utf-8
 
-from fabkit import task, Service, parallel, sudo, Editor
+from fabkit import task, parallel
+from fablib.openstack import Bootstrap
+
+
+bootstrap = Bootstrap()
 
 
 @task
 @parallel
 def setup():
-    sudo('setenforce 0')
-    Editor('/etc/selinux/config').s('SELINUX=enforcing', 'SELINUX=disable')
-
-    Service('firewalld').stop().disable()
+    bootstrap.setup()
+    bootstrap.dump_openstackrc()
 
     return {'status': 1}

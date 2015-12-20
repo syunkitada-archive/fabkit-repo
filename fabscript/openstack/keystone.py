@@ -1,15 +1,15 @@
 # coding: utf-8
 
-from fabkit import task
+from fabkit import task, parallel
 from fablib.openstack import Keystone
 
 keystone = Keystone()
 
 
 @task
+@parallel
 def setup():
     keystone.setup()
-    keystone.dump_openstackrc()
 
     return {'status': 1}
 

@@ -1,12 +1,13 @@
 # coding: utf-8
 
-from fabkit import task
+from fabkit import task, parallel
 from fablib.openstack import Ceilometer
 
 ceilometer = Ceilometer()
 
 
 @task
+@parallel
 def setup():
     ceilometer.setup()
 

@@ -82,14 +82,14 @@ glance:
   rabbit_password: ${#rabbitmq.common.users.openstack.password}
   rabbit_virtual_host: ${#rabbitmq.common.vhosts.openstack}
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/glance
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/glance
 
 nova:
   host: ${#node_map.all_in_one.hosts.0}
   version: liberty
   debug: True
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/nova
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/nova
   state_path: /var/lib/nova
   rpc_backend: rabbit
   rabbit_host: ${#rabbitmq.common.host}
@@ -126,7 +126,7 @@ neutron:
   version: liberty
   debug: True
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/neutron
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/neutron
   rabbit_host: ${#rabbitmq.common.host}
   rabbit_port: ${#rabbitmq.common.port}
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}
@@ -185,7 +185,7 @@ cinder:
   debug: True
   verbose: True
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/cinder
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/cinder
   rabbit_host: ${#rabbitmq.common.host}
   rabbit_port: ${#rabbitmq.common.port}
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}
@@ -204,7 +204,7 @@ heat:
   debug: true
   verbose: true
   database:
-    connection: mysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/heat
+    connection: mysql+pymysql://${#mysql.common.users.openstack.user}:${#mysql.common.users.openstack.password}@${#mysql.common.host}:${#mysql.common.port}/heat
   rabbit_host: ${#rabbitmq.common.host}
   rabbit_port: ${#rabbitmq.common.port}
   rabbit_userid: ${#rabbitmq.common.users.openstack.user}

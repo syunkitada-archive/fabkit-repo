@@ -1,30 +1,44 @@
 os_package_map:
-  tools:
+  os-tools:
+    name: os-tools
     prefix: /opt/os-tools
-    clients:
-      - { cmd: openstack, package: python-openstackclient }
-      - { cmd: keystone, package: python-keystoneclient }
-      - { cmd: glance, package: python-glanceclient }
-      - { cmd: nova, package: python-novaclient }
-      - { cmd: neutron, package: python-neutronclient }
-      - { cmd: cinder, package: python-cinderclient }
-      - { cmd: heat, package: python-heatclient }
-      - { cmd: ceilometer, package: python-ceilometerclient }
+    version: liberty
+    requirements:
+      - python-openstackclient
+      - python-keystoneclient
+      - python-glanceclient
+      - python-novaclient
+      - python-neutronclient
+      - python-cinderclient
+      - python-heatclient
+      - python-ceilometerclient
+    mk_links:
+      - { src: /opt/os-tools/bin/openstack, dest: /usr/bin/openstack }
+      - { src: /opt/os-tools/bin/keystone, dest: /usr/bin/keystone }
+      - { src: /opt/os-tools/bin/glance, dest: /usr/bin/glance }
+      - { src: /opt/os-tools/bin/nova, dest: /usr/bin/nova }
+      - { src: /opt/os-tools/bin/neutron, dest: /usr/bin/neutron }
+      - { src: /opt/os-tools/bin/cinder, dest: /usr/bin/cinder }
+      - { src: /opt/os-tools/bin/heat, dest: /usr/bin/heat }
+      - { src: /opt/os-tools/bin/ceilometer, dest: /usr/bin/ceilometer }
 
   keystone:
     name: keystone
-    exec_user: keystone
+    user: root
+    group: root
     prefix: /opt/keystone
-    git_url: https://github.com/openstack/keystone.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages:
+    git_repos:
+      - name: keystone
+        url: https://github.com/openstack/keystone.git
+        branch: stable/liberty
+    requirements:
       - pymysql
-    mkdirs:
+    mk_dirs:
       - { path: /var/log/keystone }
-    cpdirs:
-      - { from: etc, to: /etc/keystone }
+    cp_files:
+      - { src: etc, dest: /etc/keystone }
     services:
       - name: keystone
         description: OpenStack Identity Service
@@ -34,18 +48,22 @@ os_package_map:
 
   glance:
     name: glance
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/glance
-    git_url: https://github.com/openstack/glance.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
-    mkdirs:
+    git_repos:
+      - name: glance
+        url: https://github.com/openstack/glance.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
+    mk_dirs:
       - { path: /var/log/glance }
       - { path: /var/lib/glance }
-    cpdirs:
-      - { from: etc, to: /etc/glance }
+    cp_files:
+      - { src: etc, dest: /etc/glance }
     services:
       - name: glance-api
         description: OpenStack Image Service
@@ -60,20 +78,26 @@ os_package_map:
 
   nova:
     name: nova
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/nova
-    git_url: https://github.com/openstack/nova.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
-    mkdirs:
+    git_repos:
+      - name: nova
+        url: https://github.com/openstack/nova.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
+    mk_dirs:
       - { path: /var/log/nova }
       - { path: /var/lock/subsys/nova }
       - { path: /var/lib/nova }
       - { path: /var/lib/nova/instances }
-    cpdirs:
-      - { from: etc/nova, to: /etc/nova }
+    cp_files:
+      - { src: etc/nova, dest: /etc/nova }
+    mk_links:
+      - { src: /opt/nova/bin/nova-manage, dest: /usr/bin/nova-manage }
     services:
       - name: nova-api
         description: OpenStack Nova Service
@@ -118,19 +142,23 @@ os_package_map:
 
   neutron:
     name: neutron
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/neutron
     python: "2.7"
-    git_url: https://github.com/openstack/neutron.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
-    mkdirs:
+    git_repos:
+      - name: neutron
+        url: https://github.com/openstack/neutron.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
+    mk_dirs:
       - { path: /var/log/neutron }
-    cpdirs:
-      - { from: etc, to: /etc/neutron }
-      - { from: etc/neutron/plugins, to: /etc/neutron/plugins }
+    cp_files:
+      - { src: etc, dest: /etc/neutron }
+      - { src: etc/neutron/plugins, dest: /etc/neutron/plugins }
     services:
       - name: neutron-server
         description: OpenStack Network Service
@@ -175,37 +203,44 @@ os_package_map:
 
   horizon:
     name: horizon
-    exec_user: horizon
+    user: nobody
+    group: nobody
     prefix: /opt/horizon
-    git_url: https://github.com/openstack/horizon.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages:
+    git_repos:
+      - name: horizon
+        url: https://github.com/openstack/horizon.git
+        branch: stable/liberty
+    requirements:
       - python-memcached
-    mkdirs: []
-    cpdirs:
-      - { from: ./, to: /opt/horizon/lib/horizon }
-      # - { from: manage.py, to: /opt/horizon/lib/horizon/manage.py }
-      # - { from: openstack_dashboard, to: /opt/horizon/lib/horizon/openstack_dashboard }
+    mk_dirs: []
+    cp_files:
+      - { src: ./, dest: /opt/horizon/lib/horizon }
+      # - { src: manage.py, dest: /opt/horizon/lib/horizon/manage.py }
+      # - { src: openstack_dashboard, dest: /opt/horizon/lib/horizon/openstack_dashboard }
     services: []
 
   cinder:
     name: cinder
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/cinder
-    git_url: https://github.com/openstack/cinder.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
+    git_repos:
+      - name: cinder
+        url: https://github.com/openstack/cinder.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
     lns:
       - { src: /opt/cinder/bin/cinder-rtstool, dest: /usr/bin/cinder-rtstool }
-    mkdirs:
+    mk_dirs:
       - { path: /var/log/cinder }
       - { path: /var/lib/cinder/volumes }
-    cpdirs:
-      - { from: etc/cinder, to: /etc/cinder }
+    cp_files:
+      - { src: etc/cinder, dest: /etc/cinder }
     services:
       - name: cinder-api
         description: OpenStack Volume Service
@@ -225,18 +260,22 @@ os_package_map:
 
   heat:
     name: heat
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/heat
-    git_url: https://github.com/openstack/heat.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
-    mkdirs:
+    git_repos:
+      - name: heat
+        url: https://github.com/openstack/heat.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
+    mk_dirs:
       - { path: /var/log/heat }
       - { path: /var/lib/heat }
-    cpdirs:
-      - { from: etc/heat, to: /etc/heat }
+    cp_files:
+      - { src: etc/heat, dest: /etc/heat }
     services:
       - name: heat-api
         description: OpenStack Orchestration Service
@@ -251,18 +290,22 @@ os_package_map:
 
   ceilometer:
     name: ceilometer
-    exec_user: root
+    user: root
+    group: root
     prefix: /opt/ceilometer
-    git_url: https://github.com/openstack/ceilometer.git
-    branch: stable/liberty
     version: liberty
     is_develop: false
-    append_packages: []
-    mkdirs:
+    git_repos:
+      - name: ceilometer
+        url: https://github.com/openstack/ceilometer.git
+        branch: stable/liberty
+    requirements:
+      - pymysql
+    mk_dirs:
       - { path: /var/log/ceilometer }
       - { path: /var/lib/ceilometer }
-    cpdirs:
-      - { from: etc/ceilometer, to: /etc/ceilometer }
+    cp_files:
+      - { src: etc/ceilometer, dest: /etc/ceilometer }
     services:
       - name: ceilometer-api
         description: OpenStack Telemetry Service

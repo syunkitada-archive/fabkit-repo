@@ -5,3 +5,4 @@
 *.pickle
 /fabkit.wsgi
 nohup.out
+.password

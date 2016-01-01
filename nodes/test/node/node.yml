@@ -1,6 +1,14 @@
 node_map:
   hello:
+    env:
+      port: 40022
     hosts:
       - test
+    fabruns:
+      - test/hello
+
+  hello2:
+    hosts:
+      - test2
     fabruns:
       - test/hello

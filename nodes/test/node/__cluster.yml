@@ -5,3 +5,6 @@ __status:
     test:
       fabscript_map:
         test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+    test2:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

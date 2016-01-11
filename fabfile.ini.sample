@@ -169,6 +169,10 @@
 # TIME_ZONE of Django (string value)
 #time_zone = Asia/Tokyo
 
+# nodes of Nodejs.
+# nodes = http://localhost:4000, http://localhost:4001 (list value)
+#nodes =
+
 
 [test]
 
@@ -178,6 +182,5 @@
 # password for test (string value)
 #password = fabric
 
-# clusters for test (multi valued)
-#clusters = centos7/
-#clusters = ubuntu14/
+# clusters for test (list value)
+#clusters = centos7/,ubuntu14/

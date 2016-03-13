@@ -34,6 +34,9 @@
 # Max number of clusters save. (integer value)
 #max_recent_clusters = 3
 
+# Interval for retry. (integer value)
+#retry_interval = 3
+
 # remote_dir is storing files on remote node.this directry is created
 # home directry. (string value)
 #remote_dir = fabkit
@@ -115,6 +118,21 @@
 #syslog_log_facility = LOG_USER
 
 
+[keystone]
+
+# (string value)
+#os_auth_url = http://localhost:5000/v2.0
+
+# (string value)
+#os_tenant_name = myfabkit
+
+# (string value)
+#os_username = myfabkit
+
+# (string value)
+#os_password = mypassword
+
+
 [logger]
 
 # log level(debug, info, warning, error, critical) (string value)
@@ -184,3 +202,6 @@
 
 # clusters for test (list value)
 #clusters = centos7/,ubuntu14/
+
+# fablib for test (dict value)
+#fablib =

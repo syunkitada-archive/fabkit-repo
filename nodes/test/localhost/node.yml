@@ -1,0 +1,6 @@
+node_map:
+  qemu:
+    hosts:
+      - 192.168.11.50
+    fabruns:
+      - test/hello

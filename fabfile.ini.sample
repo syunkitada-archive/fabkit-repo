@@ -118,18 +118,30 @@
 #syslog_log_facility = LOG_USER
 
 
+[client]
+
+# host (string value)
+#host = <None>
+
+# clusters (list value)
+#clusters =
+
+# task_patterns (list value)
+#task_patterns = local.*,check.*
+
+
 [keystone]
 
-# (string value)
+# os_auth_url (string value)
 #os_auth_url = http://localhost:5000/v2.0
 
-# (string value)
+# os_tenant_name (string value)
 #os_tenant_name = myfabkit
 
-# (string value)
+# os_username (string value)
 #os_username = myfabkit
 
-# (string value)
+# os_password (string value)
 #os_password = mypassword
 
 

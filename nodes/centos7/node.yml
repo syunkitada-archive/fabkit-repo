@@ -1,0 +1,6 @@
+node_map:
+  test:
+    hosts:
+      - 192.168.122.50
+    fabruns:
+      - test/hello

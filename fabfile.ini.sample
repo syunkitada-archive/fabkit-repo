@@ -40,6 +40,9 @@
 # Interval for retry. (integer value)
 #retry_interval = 3
 
+# host (string value)
+#host = <None>
+
 # remote_dir is storing files on remote node.this directry is created
 # home directry. (string value)
 #remote_dir = fabkit
@@ -113,9 +116,6 @@
 
 
 [client]
-
-# host (string value)
-#host = <None>
 
 # clusters (list value)
 #clusters =
@@ -426,15 +426,6 @@
 
 [web]
 
-# Hostname of webserver. (string value)
-#hostname = localhost
-
-# Port of webserver. (integer value)
-#port = 8080
-
-# Wheter to use HTTPS (boolean value)
-#is_https = false
-
 # Debug (boolean value)
 #debug = true
 
@@ -447,7 +438,16 @@
 # TIME_ZONE of Django (string value)
 #time_zone = Asia/Tokyo
 
-# nodes of Nodejs.
+# node host that web client access. (string value)
+#node_public_host = localhost
+
+# node port that web client access. (integer value)
+#node_public_port = 4000
+
+# node port. (integer value)
+#node_port = 4000
+
+# nodes of nodejs cluster.
 # nodes = http://localhost:4000, http://localhost:4001 (list value)
 #nodes =
 

@@ -117,6 +117,15 @@
 
 [client]
 
+# endpoint (string value)
+#endpoint = http://localhost
+
+# username (string value)
+#username = admin
+
+# password (string value)
+#password = admin
+
 # clusters (list value)
 #clusters =
 
@@ -134,21 +143,6 @@
 
 # delete_event_interval (integer value)
 #delete_event_interval = 180
-
-
-[keystone]
-
-# os_auth_url (string value)
-#os_auth_url = http://localhost:5000/v2.0
-
-# os_tenant_name (string value)
-#os_tenant_name = myfabkit
-
-# os_username (string value)
-#os_username = myfabkit
-
-# os_password (string value)
-#os_password = mypassword
 
 
 [logger]
@@ -426,6 +420,9 @@
 
 [web]
 
+# httpd port. this option referenced from fabnode. (integer value)
+#port = 8080
+
 # Debug (boolean value)
 #debug = true
 
@@ -444,10 +441,10 @@
 # node port that web client access. (integer value)
 #node_public_port = 4000
 
-# node port. (integer value)
+# node port. this option referenced from fabnode. (integer value)
 #node_port = 4000
 
-# nodes of nodejs cluster.
+# nodes of nodejs cluster. this option referenced from fabnode.
 # nodes = http://localhost:4000, http://localhost:4001 (list value)
 #nodes =
 

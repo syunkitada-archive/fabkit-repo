@@ -4,4 +4,4 @@ __status:
   node_map:
     192.168.11.50:
       fabscript_map:
-        test/hello: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        test/hello: {check_msg: success, check_status: 0, msg: '', status: 0, task_status: 0}

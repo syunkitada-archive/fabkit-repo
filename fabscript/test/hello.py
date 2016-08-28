@@ -20,3 +20,10 @@ def setup():
 def local():
     filer.file('/etc/memcached.conf')
     filer.template('/etc/memcached.conf')
+
+
+@task
+def check():
+    return {
+        'status': 0,
+    }

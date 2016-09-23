@@ -1,0 +1,45 @@
+job:
+  triggers:
+    cron: '* * * * *'
+    hook: /node
+  pipelines:
+    - create container1
+    - if status == 0:
+      - sh echo ok boot
+      - setup
+      - if status == 0:
+        - sh echo ok setup
+      - else:
+        - sh echo bad setup
+    - else:
+      - sh echo bad boot
+      - exit
+    - sh echo end
+
+node_map:
+  hello:
+    hosts:
+      - 192.168.122.50
+    fabruns: [test/hello2]
+
+container1:
+  provider: libvirt
+  libvirt:
+    gateway: 192.168.122.1
+    netmask: 255.255.255.0
+  libvirt_vms:
+    - name: libvirt-1
+      ip: 192.168.122.50
+      template: user-data_centos7
+      src_image: http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1511.qcow2c.xz
+      vcpus: 1
+      ram: 2048
+      disk_size: 40
+      disk_size: 40
+  iptables:
+    - ip: 192.168.122.50
+      ports:
+        - [40080, 40080]
+        - [43306, 43306]
+        - [49999, 49999]
+        - [3000, 43000]

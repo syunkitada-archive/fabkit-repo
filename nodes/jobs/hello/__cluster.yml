@@ -1,0 +1,11 @@
+__status:
+  fabscript_map:
+    test/hello2: {status: 0, task_status: 100}
+  node_map:
+    $localhost:
+      fabscript_map:
+        test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
+          task_status: 100}
+    localhost:
+      fabscript_map:
+        test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

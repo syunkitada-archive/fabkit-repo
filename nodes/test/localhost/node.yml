@@ -1,6 +1,6 @@
 node_map:
   qemu:
     hosts:
-      - 192.168.11.50
+      - localhost
     fabruns:
       - test/hello

@@ -53,6 +53,12 @@
 # password (string value)
 #password = <None>
 
+# job_user (string value)
+#job_user = fabric
+
+# job_password (string value)
+#job_password = fabric
+
 # password_file (string value)
 #password_file = <None>
 
@@ -126,23 +132,20 @@
 # password (string value)
 #password = admin
 
+# group (string value)
+#group = admin
+
 # clusters (list value)
 #clusters =
 
 # task_patterns (list value)
 #task_patterns = local.*,check.*
 
-# report_interval (integer value)
-#agent_report_interval = 60
+# package_prefix (string value)
+#package_prefix = /opt/fabkit
 
-# agent_downtime (integer value)
-#agent_downtime = 120
-
-# check_event_interval (integer value)
-#check_event_interval = 60
-
-# delete_event_interval (integer value)
-#delete_event_interval = 180
+# package_var_dir (string value)
+#package_var_dir = /var/lib/fabkit
 
 
 [logger]

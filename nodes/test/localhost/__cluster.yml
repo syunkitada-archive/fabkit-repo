@@ -5,3 +5,6 @@ __status:
     192.168.11.50:
       fabscript_map:
         test/hello: {check_msg: success, check_status: 0, msg: '', status: 0, task_status: 0}
+    localhost:
+      fabscript_map:
+        test/hello: {check_msg: success, check_status: 0, msg: '', status: 0, task_status: 0}

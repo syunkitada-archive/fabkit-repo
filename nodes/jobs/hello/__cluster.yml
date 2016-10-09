@@ -1,11 +1,16 @@
 __status:
   fabscript_map:
+    test/hello: {status: 0, task_status: 100}
     test/hello2: {status: 0, task_status: 100}
   node_map:
     $localhost:
       fabscript_map:
         test/hello2: {check_msg: '', check_status: -1, msg: registered, status: 0,
           task_status: 100}
+    192.168.122.50:
+      fabscript_map:
+        test/hello: {check_msg: '', check_status: -1, msg: '', status: 0, task_status: 500}
+        test/hello2: {check_msg: '', check_status: -1, msg: '', status: 0}
     localhost:
       fabscript_map:
         test/hello2: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

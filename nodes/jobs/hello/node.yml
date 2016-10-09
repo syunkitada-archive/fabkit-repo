@@ -1,26 +1,27 @@
+node_map:
+  hello:
+    hosts:
+      - 192.168.122.50
+    fabruns: [test/hello]
+
 job:
   triggers:
     cron: '* * * * *'
     hook: /node
   pipelines:
-    - create container1
-    - if status == 0:
-      - sh echo ok boot
-      - setup
-      - if status == 0:
-        - sh echo ok setup
-      - else:
-        - sh echo bad setup
-    - else:
-      - sh echo bad boot
-      - exit
-    - sh echo end
-
-node_map:
-  hello:
-    hosts:
-      - 192.168.122.50
-    fabruns: [test/hello2]
+    - name: bootstrap
+      runs:
+        - create container1
+        - if status == 0:
+          - sh echo ok boot
+        - else:
+          - sh echo bad boot
+    - name: setup
+      runs:
+        - setup
+    - name: clean
+      runs:
+        - delete container1
 
 container1:
   provider: libvirt

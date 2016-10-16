@@ -1,0 +1,6 @@
+job_map:
+  category1:
+    - name: hello
+      cluster: jobs/hello/
+      span: 60s
+      hook: /node

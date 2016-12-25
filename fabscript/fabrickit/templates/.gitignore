@@ -1,0 +1,10 @@
+/fabfile/
+/storage/
+/fablib/
+*.pyc
+*.pickle
+/fabkit.wsgi
+nohup.out
+.password
+.python27
+.python35

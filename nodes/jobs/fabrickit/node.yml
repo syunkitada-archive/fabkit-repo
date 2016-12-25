@@ -1,0 +1,6 @@
+node_map:
+  builder:
+    hosts:
+      - 192.168.122.50
+    fabruns:
+      - fabrickit/build

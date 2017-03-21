@@ -41,7 +41,7 @@
 #retry_interval = 3
 
 # host (string value)
-#host = <None>
+#host = localhost
 
 # remote_dir is storing files on remote node.this directry is created
 # home directry. (string value)
@@ -138,8 +138,8 @@
 # clusters (list value)
 #clusters =
 
-# task_patterns (list value)
-#task_patterns = local.*,check.*
+# setup_task_patterns (list value)
+#setup_task_patterns = local.*,check.*
 
 # package_prefix (string value)
 #package_prefix = /opt/fabkit

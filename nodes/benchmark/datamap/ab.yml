@@ -1,0 +1,7 @@
+data:
+- {'!!host': 192.168.122.102, concurrency: '100', errors: '0', failed requests: '0',
+  requests: '1000', 'rps [#/sec]': '4953.83', 'tps [ms]': '0.202'}
+- {'!!host': 192.168.122.103, concurrency: '100', errors: '0', failed requests: '0',
+  requests: '1000', 'rps [#/sec]': '4938.47', 'tps [ms]': '0.202'}
+name: ab
+type: table

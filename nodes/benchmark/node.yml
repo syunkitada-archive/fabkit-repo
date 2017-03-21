@@ -1,0 +1,28 @@
+node_map:
+  # centos7:
+  #   hosts:
+  #     - 192.168.122.102
+  #     - 192.168.122.103
+  #   fabruns:
+  #     - benchmark/benchmark
+
+  # chart:
+  #   hosts:
+  #     - 192.168.122.102
+  #     - 192.168.122.103
+  #   fabruns:
+  #     - benchmark/ab_chart
+
+  # at:
+  #   hosts:
+  #     - 192.168.122.102
+  #     - 192.168.122.103
+  #   fabruns:
+  #     - benchmark/at
+
+  at_collect:
+    hosts:
+      - 192.168.122.102
+      - 192.168.122.103
+    fabruns:
+      - benchmark/at_collect

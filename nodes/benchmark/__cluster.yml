@@ -1,0 +1,28 @@
+__status:
+  fabscript_map:
+    benchmark/ab_chart: {status: 0, task_status: 0}
+    benchmark/at: {status: 0, task_status: 0}
+    benchmark/at_collect: {status: 0, task_status: 0}
+    benchmark/benchmark: {status: 0, task_status: 0}
+  node_map:
+    192.168.122.102:
+      fabscript_map:
+        benchmark/ab_chart: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        benchmark/at: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        benchmark/at_collect: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        benchmark/benchmark: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+    192.168.122.103:
+      fabscript_map:
+        benchmark/ab_chart: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        benchmark/at: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}
+        benchmark/at_collect: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+        benchmark/benchmark: {check_msg: '', check_status: -1, msg: success, status: 0,
+          task_status: 0}
+    localhost:
+      fabscript_map:
+        benchmark/at: {check_msg: '', check_status: -1, msg: success, status: 0, task_status: 0}

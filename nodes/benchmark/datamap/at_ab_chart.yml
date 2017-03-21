@@ -1,0 +1,18 @@
+data:
+- '!!host': sum
+  x: &id001 [100, 500, 1000]
+  y: [10337.12, 4388.6, 7518.73]
+- '!!host': 192.168.122.102
+  x: *id001
+  y: [6561.68, 2190.24, 4172.13]
+- '!!host': 192.168.122.103
+  x: [100, 500, 1000]
+  y: [3775.44, 2198.36, 3346.6]
+ex_data:
+- {name: sum, x: data_0_x, y: sum(y)}
+layout:
+  title: Apache Bench
+  xaxis: {showgrid: false, title: Requests, zeroline: true}
+  yaxis: {showline: false, title: RPS, zeroline: true}
+name: at_ab_chart
+type: line-chart

@@ -1,0 +1,13 @@
+node_map:
+  server:
+    hosts:
+      - 192.168.122.101
+    fabruns:
+      - bench/server
+
+  client:
+    hosts:
+      - 192.168.122.102
+      - 192.168.122.103
+    fabruns:
+      - bench/client

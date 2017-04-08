@@ -1,0 +1,7 @@
+server:
+  status_flow: [1]
+
+client:
+  require:
+    bench/server: 1
+  status_flow: [1]

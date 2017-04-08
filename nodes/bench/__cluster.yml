@@ -1,0 +1,17 @@
+__status:
+  fabscript_map:
+    bench/client: {status: 1, task_status: 0}
+    bench/server: {status: 1, task_status: 0}
+  node_map:
+    192.168.122.101:
+      fabscript_map:
+        bench/server: {check_msg: success, check_status: 0, msg: success, status: 1,
+          task_status: 0}
+    192.168.122.102:
+      fabscript_map:
+        bench/client: {check_msg: success, check_status: 0, msg: success, status: 1,
+          task_status: 0}
+    192.168.122.103:
+      fabscript_map:
+        bench/client: {check_msg: success, check_status: 0, msg: success, status: 1,
+          task_status: 0}

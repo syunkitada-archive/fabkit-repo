@@ -2,6 +2,8 @@
 
 from fabkit import *  # noqa
 
+observer = Observer()
+
 
 @task
 def setup():

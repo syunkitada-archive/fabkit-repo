@@ -1,17 +1,39 @@
 __status:
   fabscript_map:
     bench/client: {status: 1, task_status: 0}
+    bench/observer_client: {status: 1, task_status: 0}
+    bench/observer_server: {status: 1, task_status: 0}
+    bench/observer_start: {status: 1, task_status: 0}
+    bench/observer_stop: {status: 1, task_status: 0}
     bench/server: {status: 1, task_status: 0}
   node_map:
     192.168.122.101:
       fabscript_map:
+        bench/observer_server: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_start: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_stop: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
         bench/server: {check_msg: success, check_status: 0, msg: success, status: 1,
           task_status: 0}
     192.168.122.102:
       fabscript_map:
         bench/client: {check_msg: success, check_status: 0, msg: success, status: 1,
           task_status: 0}
+        bench/observer_client: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_start: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_stop: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
     192.168.122.103:
       fabscript_map:
         bench/client: {check_msg: success, check_status: 0, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_client: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_start: {check_msg: '', check_status: -1, msg: success, status: 1,
+          task_status: 0}
+        bench/observer_stop: {check_msg: '', check_status: -1, msg: success, status: 1,
           task_status: 0}

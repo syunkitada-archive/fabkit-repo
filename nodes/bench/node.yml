@@ -4,6 +4,7 @@ node_map:
       - 192.168.122.101
     fabruns:
       - bench/server
+      - bench/observer_server
 
   client:
     hosts:
@@ -11,3 +12,20 @@ node_map:
       - 192.168.122.103
     fabruns:
       - bench/client
+      - bench/observer_client
+
+  observer_start:
+    hosts:
+      - 192.168.122.101
+      - 192.168.122.102
+      - 192.168.122.103
+    fabruns:
+      - bench/observer_start
+
+  observer_stop:
+    hosts:
+      - 192.168.122.101
+      - 192.168.122.102
+      - 192.168.122.103
+    fabruns:
+      - bench/observer_stop

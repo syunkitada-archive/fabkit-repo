@@ -1,9 +1,9 @@
 Init bench console.log
-192.168.122.101: start observer  
-192.168.122.102: start observer  
 192.168.122.103: start observer  
+192.168.122.102: start observer  
+192.168.122.101: start observer  
 192.168.122.103: start wrk  
 192.168.122.102: start wrk  
 192.168.122.103: stop observer  
-192.168.122.101: stop observer  
 192.168.122.102: stop observer  
+192.168.122.101: stop observer  

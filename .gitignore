@@ -6,3 +6,4 @@
 /fabkit.wsgi
 nohup.out
 .password
+*.tmp
